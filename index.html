@@ -89,12 +89,39 @@
     </article>
     </div>
 
-      <div class="fluffy-cta-center">
-        <button class="nav-cta-btn cta-btn-clouds" data-modal="interest-form-modal" aria-label="Stay tuned for updates">
-          STAY TUNED!
-        </button>
+      <div id="inline-cta-fixed" style="position:fixed;left:50%;top:calc(50vh - 120px);transform:translateX(-50%);z-index:1031;display:none;min-width:250px;max-width:98vw;">
+        <div style="background: #12163a; border-radius: 20px; box-shadow: 0 4px 24px #51ffe155; padding: 1.3em 2em; display: flex; flex-direction: column; align-items: center; border: 2px solid #51ffe1; width: 340px; max-width: 95vw;">
+          <button class="nav-cta-btn cta-btn-clouds" data-modal="interest-form-modal" aria-label="Stay tuned for updates"
+            style="font-size:1.08rem;padding:0.85em 1.3em;margin:0;font-weight:600;background:linear-gradient(100deg,#4ef7e8 10%,#51ffe1 40%,#fff 90%);color:#212371;box-shadow:0 0 14px #51ffe144, 0 2px 12px #0006;letter-spacing:0.01em;border-radius:1.5em;">
+            STAY TUNED!
+          </button>
+        </div>
       </div>
-     
+      <script>
+        window.addEventListener("DOMContentLoaded", function() {
+          setTimeout(function() {
+            var popup = document.getElementById('inline-cta-fixed');
+            if(popup) popup.style.display = 'block';
+          }, 1000);
+
+          // Optional: dismiss when clicking button
+          document.querySelector('#inline-cta-fixed .nav-cta-btn')?.addEventListener('click', function(e) {
+            document.getElementById('inline-cta-fixed').style.display = 'none';
+          });
+        });
+      </script>
+      <style>
+        @media (max-width: 600px) {
+          #inline-cta-fixed > div {
+            width: 96vw !important;
+            padding: 1em 0.2em !important;
+          }
+          #inline-cta-fixed .nav-cta-btn {
+            font-size: .95rem !important;
+            padding: 0.7em 1em !important;
+          }
+        }
+      </style>
 
   <!-- Why 2026 & FAQ - Two Column Carousel Layout -->
   <section class="insights-section" id="why-2026">
