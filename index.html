@@ -406,6 +406,145 @@
     </div>
   </div>
 
+  <!-- INSERT_YOUR_CODE -->
+  <section class="ecosystem-logos-container">
+    <h2 class="ecosystem-title">Quredge ecosystem</h2>
+    <div class="logos-carousel-wrapper">
+      <div class="logos-carousel" id="logos-carousel">
+        <a href="https://www.qutsur.com" target="_blank" rel="noopener" class="ecosystem-logo-link">
+          <img src="logos/qutsur.png" alt="QutSur" class="ecosystem-logo" />
+        </a>
+        <a href="https://catedrauabcruilla.cvc.uab.es/" target="_blank" rel="noopener" class="ecosystem-logo-link">
+          <img src="logos/uab_cruilla.png" alt="Cátedra UAB Cruïlla" class="ecosystem-logo" />
+        </a>
+        <a href="https://www.edgecity.live/" target="_blank" rel="noopener" class="ecosystem-logo-link">
+          <img src="logos/edge.svg" alt="Edge City" class="ecosystem-logo" />
+        </a>
+        <!-- Repeat for seamless infinite scroll -->
+        <a href="https://www.qutsur.com" target="_blank" rel="noopener" class="ecosystem-logo-link">
+          <img src="logos/qutsur.png" alt="QutSur" class="ecosystem-logo" />
+        </a>
+        <a href="https://catedrauabcruilla.cvc.uab.es/" target="_blank" rel="noopener" class="ecosystem-logo-link">
+          <img src="logos/uab_cruilla.png" alt="Cátedra UAB Cruïlla" class="ecosystem-logo" />
+        </a>
+        <a href="https://www.edgecity.live/" target="_blank" rel="noopener" class="ecosystem-logo-link">
+          <img src="logos/edge.svg" alt="Edge City" class="ecosystem-logo" />
+        </a>
+      </div>
+    </div>
+  </section>
+  <style>
+    .ecosystem-logos-container {
+      width: 100vw;
+      background: linear-gradient(90deg, #fff 70%, #f7f9fc 100%);
+      padding: 56px 0 44px 0;
+      margin: 0 calc(-1 * (100vw - 100%)/2);
+      overflow: hidden;
+      position: relative;
+    }
+    .ecosystem-title {
+      text-align: center;
+      font-family: 'Montserrat', 'Inter', 'Georgia', serif;
+      font-size: 2.8rem;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+      color: #05050e;
+      margin-bottom: 32px;
+      text-shadow: 0 4px 24px rgba(96,88,255,0.04);
+    }
+    .logos-carousel-wrapper {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 0;
+    }
+    .logos-carousel {
+      display: flex;
+      align-items: center;
+      gap: 44px;
+      will-change: transform;
+      animation: logos-scroll 24s linear infinite;
+    }
+    .ecosystem-logo-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 
+        filter 0.2s,
+        transform 0.2s;
+      filter: grayscale(80%) brightness(96%);
+      opacity: 0.90;
+      border-radius: 24px;
+      padding: 8px 24px;
+    }
+    .ecosystem-logo-link:hover, .ecosystem-logo-link:focus-visible {
+      filter: grayscale(0%) brightness(110%) drop-shadow(0 4px 36px #6058ff18);
+      opacity: 1;
+      background: rgba(96,88,255,0.04);
+      transform: scale(1.045) translateY(-2px);
+    }
+    .ecosystem-logo {
+      height: 150px;
+      width: auto;
+      max-width: 250px;
+      object-fit: contain;
+      display: block;
+      aspect-ratio: 4 / 3;
+      transition: filter 0.2s;
+      box-shadow: 0 6px 24px rgba(67,64,105,0.06);
+      border-radius: 18px;
+      background: #fff8;
+    }
+    @media (max-width: 900px){
+      .ecosystem-logo {
+        height: 92px;
+        max-width: 150px;
+      }
+      .ecosystem-title {
+        font-size: 2rem;
+        margin-bottom: 22px;
+      }
+      .logos-carousel {
+        gap: 22px;
+      }
+    }
+    @media (max-width: 570px){
+      .ecosystem-logos-container{
+        padding: 30px 0 18px 0;
+      }
+      .ecosystem-title {
+        font-size: 1.36rem;
+      }
+      .logos-carousel {
+        gap: 12px;
+      }
+      .ecosystem-logo {
+        height: 64px;
+        max-width: 96px;
+      }
+    }
+
+    @keyframes logos-scroll {
+      from {
+        transform: translateX(0%);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+  <script>
+    // Optional: Pause on hover for accessibility & style
+    const logosCarousel = document.getElementById('logos-carousel');
+    if (logosCarousel) {
+      logosCarousel.addEventListener('mouseenter', () => {
+        logosCarousel.style.animationPlayState = 'paused';
+      });
+      logosCarousel.addEventListener('mouseleave', () => {
+        logosCarousel.style.animationPlayState = '';
+      });
+    }
+  </script>
 
   <!-- Footer -->
   <footer class="main-footer">
