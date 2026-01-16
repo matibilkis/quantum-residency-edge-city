@@ -1,9 +1,5 @@
 Where Quantum Computing Meets Web3 Security
 
-Quredge: Month-Long Quantum Residency at Edge City
-
-Join quantum researchers, blockchain architects, philosophers, and builders 
-for intensive collaboration on post-quantum cryptography, distributed 
-quantum computing, and the future of cryptographic security.
+A month-long quantum residency at Edge City Esmeralda, co-habitated by scientific researchers, blockchain architects, web3 developers, artists, engineers, and builders for intensive collaboration.
 
 May 2026 | Esmeralda, CA
