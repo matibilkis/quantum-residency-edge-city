@@ -94,10 +94,13 @@ body.card-expanded {
 
 /* No sticky headers needed - cards are static */
 
-/* Show all card text - no hiding */
-.card .card-text {
-  display: block;
-  opacity: 1;
+/* Ensure all card text is always visible */
+.card .card-text,
+.card-text {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  max-height: none !important;
 }
 
 /* Show expanded content by default - no expansion needed */
