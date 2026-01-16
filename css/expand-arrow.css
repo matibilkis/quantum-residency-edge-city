@@ -1,0 +1,236 @@
+/* Beautiful Expand Arrow - UX Optimized */
+
+.card-expand-btn {
+  /* Positioning */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem auto 0 auto;
+  padding: 0.5rem;
+  
+  /* Size */
+  width: 40px;
+  height: 40px;
+  
+  /* Styling */
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  
+  /* Transitions */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Remove default button styles */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Arrow SVG */
+.expand-arrow {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effect - Makes it pop */
+.card-expand-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card-expand-btn:hover .expand-arrow {
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(2px);
+}
+
+/* Active/pressed state */
+.card-expand-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.1s;
+}
+
+/* When card is expanded - rotate arrow 180° */
+.card.expanded .expand-arrow {
+  transform: rotate(180deg);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card.expanded .card-expand-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-width: 2px;
+}
+
+.card.expanded .card-expand-btn:hover .expand-arrow {
+  transform: rotate(180deg) translateY(-2px);
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Color-coded by card type */
+.card.philosophy .card-expand-btn {
+  border-color: var(--philosophy);
+}
+
+.card.philosophy .card-expand-btn:hover {
+  background: rgba(46, 236, 184, 0.15);
+  border-color: var(--philosophy);
+  box-shadow: 0 4px 12px rgba(46, 236, 184, 0.3);
+}
+
+.card.philosophy .expand-arrow {
+  color: var(--philosophy);
+}
+
+.card.web3 .card-expand-btn {
+  border-color: var(--web3);
+}
+
+.card.web3 .card-expand-btn:hover {
+  background: rgba(227, 102, 247, 0.15);
+  border-color: var(--web3);
+  box-shadow: 0 4px 12px rgba(227, 102, 247, 0.3);
+}
+
+.card.web3 .expand-arrow {
+  color: var(--web3);
+}
+
+.card.edge .card-expand-btn {
+  border-color: var(--transdisciplinary);
+}
+
+.card.edge .card-expand-btn:hover {
+  background: rgba(254, 199, 72, 0.15);
+  border-color: var(--transdisciplinary);
+  box-shadow: 0 4px 12px rgba(254, 199, 72, 0.3);
+}
+
+.card.edge .expand-arrow {
+  color: var(--transdisciplinary);
+}
+
+/* Subtle bounce animation to draw attention */
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.card-expand-btn {
+  animation: gentle-bounce 2s ease-in-out infinite;
+  animation-delay: 1s; /* Start after page loads */
+}
+
+/* Stop bouncing when card is expanded */
+.card.expanded .card-expand-btn {
+  animation: none;
+}
+
+/* Stop bouncing on hover (user found it) */
+.card-expand-btn:hover {
+  animation: none;
+}
+
+/* Pulsing glow effect on hover */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+  50% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+}
+
+.card-expand-btn:hover {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Focus state for keyboard navigation */
+.card-expand-btn:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.card-expand-btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card-expand-btn {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .expand-arrow {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Smooth entrance animation */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-expand-btn {
+  animation: fade-in-up 0.6s ease-out, gentle-bounce 2s ease-in-out infinite;
+  animation-delay: 0.3s, 1.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Stagger the arrow appearances */
+.card:nth-child(1) .card-expand-btn {
+  animation-delay: 0.3s, 1.5s;
+}
+
+.card:nth-child(2) .card-expand-btn {
+  animation-delay: 0.4s, 1.6s;
+}
+
+.card:nth-child(3) .card-expand-btn {
+  animation-delay: 0.5s, 1.7s;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card-expand-btn {
+    border-width: 3px;
+  }
+  
+  .expand-arrow {
+    stroke-width: 3;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .card-expand-btn,
+  .expand-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Touch device optimization */
+@media (hover: none) and (pointer: coarse) {
+  .card-expand-btn {
+    /* Larger touch target */
+    width: 48px;
+    height: 48px;
+  }
+  
+  /* Immediate feedback on touch */
+  .card-expand-btn:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0.95);
+  }
+}
+

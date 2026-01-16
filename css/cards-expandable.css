@@ -1,0 +1,379 @@
+/* Expandable Cards - Vertical Expansion Instead of Modal */
+
+/* Freeze body scroll when a card is expanded */
+body.card-expanded {
+  overflow: hidden !important;
+  height: 100vh;
+  position: fixed;
+  width: 100%;
+}
+
+.card {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Equal height for all cards when collapsed */
+  min-height: 220px;
+  height: 220px;
+  
+  /* Flexible display for consistent spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  /* Better stacking */
+  position: relative;
+  z-index: 1;
+}
+
+/* Dim non-expanded cards when one is active */
+.card-expanded .card:not(.expanded) {
+  opacity: 0.4;
+  transform: scale(0.98);
+  filter: blur(1px);
+  pointer-events: none;
+}
+
+/* When card is expanded */
+.card.expanded {
+  height: auto;
+  min-height: 220px;
+  max-height: 600px; /* Expanded state - adjust as needed */
+  z-index: 1000;
+  box-shadow: 
+    0 0 0 2px rgba(255, 255, 255, 0.1),
+    0 25px 70px rgba(0, 0, 0, 0.5),
+    0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateY(0) scale(1.02);
+  
+  /* Enhanced scroll containment */
+  overflow: hidden;
+  overscroll-behavior: contain;
+  overscroll-behavior-y: contain;
+  
+  /* Card captures all pointer events when expanded */
+  pointer-events: auto;
+  position: relative;
+  isolation: isolate;
+  
+  /* Subtle glow effect based on card type */
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+}
+
+/* Color-coded glow for expanded cards */
+.card.expanded.philosophy {
+  box-shadow: 
+    0 0 0 2px rgba(46, 236, 184, 0.3),
+    0 0 40px rgba(46, 236, 184, 0.15),
+    0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+.card.expanded.web3 {
+  box-shadow: 
+    0 0 0 2px rgba(227, 102, 247, 0.3),
+    0 0 40px rgba(227, 102, 247, 0.15),
+    0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+.card.expanded.edge {
+  box-shadow: 
+    0 0 0 2px rgba(254, 199, 72, 0.3),
+    0 0 40px rgba(254, 199, 72, 0.15),
+    0 25px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* Card content wrapper */
+.card-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Preview content (always visible) */
+.card-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Allow flex shrinking */
+}
+
+/* Make only the heading sticky when card is expanded */
+.card.expanded .card-badge,
+.card.expanded .card-heading {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, 
+    rgba(13, 27, 42, 1) 0%,
+    rgba(13, 27, 42, 0.98) 70%,
+    rgba(13, 27, 42, 0.95) 85%,
+    rgba(13, 27, 42, 0) 100%
+  );
+  z-index: 20;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Add spacing after sticky header */
+.card.expanded .card-heading {
+  padding-bottom: 1rem;
+}
+
+/* Subtle shadow on header when scrolling */
+.card-expanded-content.scrolled .card-badge,
+.card-expanded-content.scrolled .card-heading {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hide the first paragraph text when expanded (it's replaced by expanded content) */
+.card.expanded .card-text {
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+/* Expanded content (hidden by default) */
+.card-expanded-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 0;
+}
+
+.card.expanded .card-expanded-content {
+  max-height: 350px; /* Adjust based on content */
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 1;
+  margin-top: 1rem;
+  padding-right: 0.5rem;
+  position: relative;
+  
+  /* CRITICAL: Prevent scroll from escaping card */
+  overscroll-behavior: contain;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  
+  /* Isolate scrolling completely */
+  isolation: isolate;
+  scroll-behavior: smooth;
+}
+
+/* Scroll hint indicator (gradient at bottom when scrollable) */
+.card.expanded .card-expanded-content::after {
+  content: '';
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(
+    to top,
+    rgba(13, 27, 42, 1) 0%,
+    rgba(13, 27, 42, 0) 100%
+  );
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Hide gradient when scrolled to bottom */
+.card-expanded-content.scrolled-to-bottom::after {
+  opacity: 0;
+}
+
+/* Scrollbar styling for expanded content */
+.card-expanded-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-expanded-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+.card-expanded-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.card-expanded-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Color-coded scrollbars */
+.card.philosophy .card-expanded-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--philosophy) 0%, rgba(46, 236, 184, 0.3) 100%);
+}
+
+.card.web3 .card-expanded-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--web3) 0%, rgba(227, 102, 247, 0.3) 100%);
+}
+
+.card.edge .card-expanded-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--transdisciplinary) 0%, rgba(254, 199, 72, 0.3) 100%);
+}
+
+/* Expanded content styling */
+.card-expanded-content h3 {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  margin: 1rem 0 0.5rem 0;
+  color: var(--primary);
+}
+
+.card-expanded-content h4 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin: 0.75rem 0 0.4rem 0;
+  opacity: 0.9;
+}
+
+.card-expanded-content p {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #d0dde2;
+  margin-bottom: 0.75rem;
+}
+
+.card-expanded-content ul {
+  margin: 0.5rem 0 0.75rem 1.2rem;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: #d0dde2;
+}
+
+.card-expanded-content li {
+  margin-bottom: 0.4rem;
+}
+
+.card-expanded-content strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+/* Button text changes */
+.card-btn .btn-text-collapsed {
+  display: inline;
+}
+
+.card-btn .btn-text-expanded {
+  display: none;
+}
+
+.card.expanded .card-btn .btn-text-collapsed {
+  display: none;
+}
+
+.card.expanded .card-btn .btn-text-expanded {
+  display: inline;
+}
+
+/* Prevent other cards from being affected */
+.cards-grid {
+  align-items: start; /* Allow cards to have different heights */
+}
+
+/* Smooth grid adjustment */
+.cards-grid {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .card {
+    height: auto; /* Natural height on mobile */
+    min-height: 180px;
+  }
+  
+  .card.expanded {
+    max-height: none;
+  }
+  
+  .card.expanded .card-expanded-content {
+    max-height: 500px;
+  }
+}
+
+/* Color-coded expanded sections */
+.card.philosophy .card-expanded-content h3 {
+  color: var(--philosophy);
+}
+
+.card.web3 .card-expanded-content h3 {
+  color: var(--web3);
+}
+
+.card.edge .card-expanded-content h3 {
+  color: var(--transdisciplinary);
+}
+
+/* Fade in animation for expanded content */
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card.expanded .card-expanded-content > * {
+  animation: fadeInContent 0.4s ease-out forwards;
+  animation-delay: 0.15s;
+  opacity: 0;
+}
+
+.card.expanded .card-expanded-content > *:nth-child(1) { animation-delay: 0.15s; }
+.card.expanded .card-expanded-content > *:nth-child(2) { animation-delay: 0.2s; }
+.card.expanded .card-expanded-content > *:nth-child(3) { animation-delay: 0.25s; }
+.card.expanded .card-expanded-content > *:nth-child(4) { animation-delay: 0.3s; }
+.card.expanded .card-expanded-content > *:nth-child(5) { animation-delay: 0.35s; }
+.card.expanded .card-expanded-content > *:nth-child(6) { animation-delay: 0.4s; }
+
+/* Scroll hint - subtle animated chevron at bottom */
+.card-expanded-content::before {
+  content: '⌄';
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.4);
+  animation: scroll-hint 2s ease-in-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card.expanded .card-expanded-content:not(.scrolled-to-bottom)::before {
+  opacity: 1;
+}
+
+.card-expanded-content.scrolled::before {
+  opacity: 0;
+}
+
+@keyframes scroll-hint {
+  0%, 100% { 
+    transform: translateX(-50%) translateY(0);
+    opacity: 0.4;
+  }
+  50% { 
+    transform: translateX(-50%) translateY(4px);
+    opacity: 0.7;
+  }
+}
+

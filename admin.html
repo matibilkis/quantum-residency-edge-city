@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quredge - Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .stat-card h3 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #00ffff;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-card .value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-card .detail {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .controls {
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      align-items: center;
+    }
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background: rgba(0, 255, 255, 0.1);
+      border: 1px solid #00ffff;
+      color: #00ffff;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      background: rgba(0, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .search-box {
+      flex: 1;
+      max-width: 400px;
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+    }
+    
+    .table-container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    thead {
+      background: rgba(0, 255, 255, 0.1);
+    }
+    
+    th {
+      padding: 1rem;
+      text-align: left;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #00ffff;
+      font-weight: 700;
+    }
+    
+    td {
+      padding: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.875rem;
+    }
+    
+    tbody tr {
+      transition: background 0.2s ease;
+    }
+    
+    tbody tr:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .badge.attendant {
+      background: rgba(0, 255, 100, 0.2);
+      color: #00ff64;
+    }
+    
+    .badge.sponsor {
+      background: rgba(255, 200, 0, 0.2);
+      color: #ffc800;
+    }
+    
+    .badge.both {
+      background: rgba(255, 0, 255, 0.2);
+      color: #ff00ff;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .error {
+      text-align: center;
+      padding: 3rem;
+      color: #ff5555;
+    }
+    
+    .curiosity-cell {
+      max-width: 300px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    
+    .curiosity-cell:hover {
+      white-space: normal;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #00ffff;
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+    }
+    
+    .back-link:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      
+      h1 {
+        font-size: 1.75rem;
+      }
+      
+      .table-container {
+        overflow-x: auto;
+      }
+      
+      table {
+        min-width: 800px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+      <a href="/" class="back-link">← Back to Landing Page</a>
+      <button class="btn" onclick="logout()" style="background: rgba(255, 50, 50, 0.1); border-color: #ff5555; color: #ff5555;">Logout</button>
+    </div>
+    <h1>Quredge Admin Dashboard</h1>
+    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 2rem;">Interest Form Submissions</p>
+    
+    <div class="stats-grid" id="stats-grid">
+      <div class="stat-card">
+        <h3>Total Submissions</h3>
+        <div class="value" id="total-count">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Attendants</h3>
+        <div class="value" id="attendant-count">-</div>
+      </div>
+      <div class="stat-card">
+        <h3>Sponsors</h3>
+        <div class="value" id="sponsor-count">-</div>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button class="btn" onclick="loadData()">Refresh</button>
+      <button class="btn" onclick="exportToCSV()">Export CSV</button>
+      <input type="text" class="search-box" id="search-box" placeholder="Search by name, email, or institution...">
+    </div>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Participation</th>
+            <th>Institution</th>
+            <th>Curiosity</th>
+            <th>Submitted</th>
+          </tr>
+        </thead>
+        <tbody id="submissions-tbody">
+          <tr>
+            <td colspan="8" class="loading">Loading...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script>
+    let allSubmissions = [];
+    
+    async function loadData() {
+      try {
+        // Load submissions
+        const response = await fetch('/api/admin/interest/all');
+        const result = await response.json();
+        
+        if (result.success) {
+          allSubmissions = result.data;
+          displaySubmissions(allSubmissions);
+        } else {
+          showError('Failed to load submissions');
+        }
+        
+        // Load stats
+        const statsResponse = await fetch('/api/admin/interest/stats');
+        const statsResult = await statsResponse.json();
+        
+        if (statsResult.success) {
+          displayStats(statsResult.stats);
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        showError('Unable to load data. Make sure the server is running.');
+      }
+    }
+    
+    function displayStats(stats) {
+      document.getElementById('total-count').textContent = stats.total || 0;
+      
+      const byParticipation = stats.byParticipation || [];
+      const attendantCount = byParticipation.find(s => s.participation === 'attendant')?.count || 0;
+      const sponsorCount = byParticipation.find(s => s.participation === 'sponsor')?.count || 0;
+      const bothCount = byParticipation.find(s => s.participation === 'both')?.count || 0;
+      
+      document.getElementById('attendant-count').textContent = attendantCount + bothCount;
+      document.getElementById('sponsor-count').textContent = sponsorCount + bothCount;
+    }
+    
+    function displaySubmissions(submissions) {
+      const tbody = document.getElementById('submissions-tbody');
+      
+      if (submissions.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 2rem; color: rgba(255, 255, 255, 0.6);">No submissions yet</td></tr>';
+        return;
+      }
+      
+      tbody.innerHTML = submissions.map(sub => `
+        <tr>
+          <td>${sub.id}</td>
+          <td>${escapeHtml(sub.name)}</td>
+          <td>${escapeHtml(sub.email)}</td>
+          <td><span class="badge ${sub.participation}">${sub.participation}</span></td>
+          <td>${escapeHtml(sub.institution || '-')}</td>
+          <td class="curiosity-cell" title="${escapeHtml(sub.curiosity)}">${escapeHtml(sub.curiosity)}</td>
+          <td>${formatDate(sub.submitted_at)}</td>
+        </tr>
+      `).join('');
+    }
+    
+    function showError(message) {
+      const tbody = document.getElementById('submissions-tbody');
+      tbody.innerHTML = `<tr><td colspan="7" class="error">${message}</td></tr>`;
+    }
+    
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+    }
+    
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+    
+    function exportToCSV() {
+      if (allSubmissions.length === 0) {
+        alert('No data to export');
+        return;
+      }
+      
+      const headers = ['ID', 'Name', 'Email', 'Participation', 'Institution', 'Curiosity', 'Submitted At'];
+      const rows = allSubmissions.map(sub => [
+        sub.id,
+        sub.name,
+        sub.email,
+        sub.participation,
+        sub.institution || '',
+        sub.curiosity,
+        sub.submitted_at
+      ]);
+      
+      const csvContent = [
+        headers.join(','),
+        ...rows.map(row => row.map(cell => `"${String(cell).replace(/"/g, '""')}"`).join(','))
+      ].join('\n');
+      
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `quredge-submissions-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    
+    // Search functionality
+    document.getElementById('search-box').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      
+      if (searchTerm === '') {
+        displaySubmissions(allSubmissions);
+        return;
+      }
+      
+      const filtered = allSubmissions.filter(sub => 
+        sub.name.toLowerCase().includes(searchTerm) ||
+        sub.email.toLowerCase().includes(searchTerm) ||
+        (sub.institution && sub.institution.toLowerCase().includes(searchTerm)) ||
+        sub.curiosity.toLowerCase().includes(searchTerm)
+      );
+      
+      displaySubmissions(filtered);
+    });
+    
+    // Logout function
+    async function logout() {
+      try {
+        await fetch('/api/auth/logout', { method: 'POST' });
+        window.location.href = '/login.html';
+      } catch (error) {
+        console.error('Logout error:', error);
+        window.location.href = '/login.html';
+      }
+    }
+    
+    // Check authentication on page load
+    async function checkAuth() {
+      try {
+        const response = await fetch('/api/auth/status');
+        const result = await response.json();
+        
+        if (!result.authenticated) {
+          window.location.href = '/login.html';
+          return false;
+        }
+        return true;
+      } catch (error) {
+        window.location.href = '/login.html';
+        return false;
+      }
+    }
+    
+    // Initialize page
+    async function init() {
+      const authenticated = await checkAuth();
+      if (authenticated) {
+        loadData();
+        // Auto-refresh every 30 seconds
+        setInterval(loadData, 30000);
+      }
+    }
+    
+    init();
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Quredge</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    
+    .login-container {
+      max-width: 400px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 3rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    label {
+      display: block;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    
+    input:focus {
+      border-color: #00ffff;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.1);
+    }
+    
+    .login-btn {
+      width: 100%;
+      padding: 1rem;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+      border: 1px solid #00ffff;
+      color: #00ffff;
+      border-radius: 8px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+    
+    .login-btn:hover {
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.3), rgba(255, 0, 255, 0.3));
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+    }
+    
+    .login-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .status-message {
+      min-height: 1.5rem;
+      margin: 1rem 0;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .status-message.error {
+      background: rgba(255, 50, 50, 0.1);
+      border: 1px solid rgba(255, 50, 50, 0.3);
+      color: #ff5555;
+    }
+    
+    .status-message.success {
+      background: rgba(0, 255, 100, 0.1);
+      border: 1px solid rgba(0, 255, 100, 0.3);
+      color: #00ff64;
+    }
+    
+    .status-message.loading {
+      background: rgba(0, 200, 255, 0.1);
+      border: 1px solid rgba(0, 200, 255, 0.3);
+      color: #00ffff;
+    }
+    
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 1.5rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.3s ease;
+    }
+    
+    .back-link:hover {
+      color: #00ffff;
+    }
+    
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 2rem 1.5rem;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <h1>Quredge Admin</h1>
+      <p class="subtitle">Secure Access</p>
+    </div>
+    
+    <form id="login-form">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          required 
+          autocomplete="username"
+          placeholder="Enter username"
+        >
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          required 
+          autocomplete="current-password"
+          placeholder="Enter password"
+        >
+      </div>
+      
+      <div class="status-message" id="status-message"></div>
+      
+      <button type="submit" class="login-btn" id="login-btn">
+        Login
+      </button>
+    </form>
+    
+    <a href="/" class="back-link">← Back to Landing Page</a>
+  </div>
+  
+  <script>
+    const form = document.getElementById('login-form');
+    const statusMessage = document.getElementById('status-message');
+    const loginBtn = document.getElementById('login-btn');
+    
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      loginBtn.disabled = true;
+      showStatus('Logging in...', 'loading');
+      
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          showStatus('Login successful! Redirecting...', 'success');
+          setTimeout(() => {
+            window.location.href = '/admin.html';
+          }, 1000);
+        } else {
+          showStatus(result.message || 'Invalid credentials', 'error');
+          loginBtn.disabled = false;
+        }
+      } catch (error) {
+        console.error('Login error:', error);
+        showStatus('Connection error. Please try again.', 'error');
+        loginBtn.disabled = false;
+      }
+    });
+    
+    function showStatus(message, type) {
+      statusMessage.textContent = message;
+      statusMessage.className = `status-message ${type}`;
+    }
+    
+    // Check if already logged in
+    async function checkAuth() {
+      try {
+        const response = await fetch('/api/auth/status');
+        const result = await response.json();
+        
+        if (result.authenticated) {
+          window.location.href = '/admin.html';
+        }
+      } catch (error) {
+        // Not authenticated, stay on login page
+      }
+    }
+    
+    checkAuth();
+  </script>
+</body>
+</html>
+

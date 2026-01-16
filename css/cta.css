@@ -1,0 +1,138 @@
+/* CTA Section & Button */
+.cta-section {
+  margin: 4px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 8px;
+  position: relative;
+  z-index: 10;
+}
+
+.learn-more-btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--edge-dark);
+  background: var(--primary);
+  padding: 0.8em 1.8em;
+  border: none;
+  border-radius: 200px;
+  box-shadow: 0 2px 20px rgba(30, 203, 225, 0.3);
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  margin-bottom: 25px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.learn-more-btn:hover {
+  background: #2dd8ed;
+  box-shadow: 0 4px 32px rgba(30, 203, 225, 0.5);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.learn-more-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cta-btn {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82em;
+  color: var(--edge-dark);
+  background: linear-gradient(98deg, var(--primary) 60%, var(--accent) 100%);
+  padding: 0.55em 1.4em;
+  border: none;
+  border-radius: 200px;
+  box-shadow: 0 2px 24px #2ddeec34;
+  cursor: pointer;
+  letter-spacing: 0.07em;
+  margin-bottom: 6px;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(94deg, #44e4ef 40%, #f7e57b 100%);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px) scale(1.025);
+}
+
+.cta-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.cta-text {
+  font-size: 0.78em;
+  color: #a8b2b7;
+  letter-spacing: 0.01em;
+  font-family: var(--font-mono);
+}
+
+/* Ripple effect for clicks */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(0);
+  animation: rippleEffect 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cta-section {
+    margin-top: 24px;
+    padding-bottom: 48px;
+  }
+  
+  .learn-more-btn {
+    font-size: 0.95rem;
+    padding: 0.85em 1.8em;
+    margin-bottom: 20px;
+  }
+  
+  .cta-btn {
+    font-size: 1.05rem;
+    padding: 0.9em 2em;
+  }
+  
+  .cta-text {
+    font-size: 0.88em;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-section {
+    margin-top: 16px;
+    padding-bottom: 40px;
+  }
+  
+  .learn-more-btn {
+    font-size: 0.88rem;
+    padding: 0.8em 1.6em;
+    margin-bottom: 18px;
+  }
+  
+  .cta-btn {
+    font-size: 0.95rem;
+    padding: 0.85em 1.8em;
+  }
+  
+  .cta-text {
+    font-size: 0.85em;
+    padding: 0 16px;
+    text-align: center;
+  }
+}
+

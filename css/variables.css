@@ -1,0 +1,36 @@
+/* Design System - Color Palette & Tokens */
+:root {
+  /* Brand Colors */
+  --primary: #1ecbe1;
+  --edge-dark: #181b21;
+  --white: #eef7fa;
+  --accent: #e2e388;
+  
+  /* Track Colors */
+  --philosophy: #2eecb8;
+  --web3: #e366f7;
+  --transdisciplinary: #fec748;
+  
+  /* Component Colors */
+  --card-bg: #20232a;
+  --card-border: #42b6aa;
+  
+  /* Layout */
+  --radius: 18px;
+  --max-width: 920px;
+  
+  /* Typography */
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.16s;
+  --transition-normal: 0.22s;
+  --transition-slow: 0.35s;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 20px #1ecbe110;
+  --shadow-md: 0 4px 32px #1ecbe160;
+  --shadow-lg: 0 8px 48px #1ecbe130;
+}
+
