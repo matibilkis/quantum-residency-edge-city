@@ -24,13 +24,34 @@
   <link rel="stylesheet" href="css/particles.css">
   <link rel="stylesheet" href="css/cta.css">
   <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>
+  <!-- Sticky Navigation -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-container">
+      <a href="#top" class="nav-logo">Quredge</a>
+      
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#tracks">Tracks</a></li>
+        <li><a href="#why-2026">Why 2026</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><button class="nav-cta-btn" data-modal="interest-form-modal">Apply</button></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Particle Background -->
   <canvas id="particle-canvas"></canvas>
   
   <!-- Main Content -->
-  <header>
+  <header id="top">
     <!-- Cloud Convergence Animation -->
     <div class="cloud-convergence">
       <img src="assets/clouds/cloud-philosophy.svg" alt="" class="cloud cloud-philosophy" aria-hidden="true">
@@ -46,7 +67,7 @@
   </header>
 
   <!-- Social Proof Section -->
-  <section class="social-proof">
+  <section class="social-proof" id="about">
     <div class="proof-content">
       <p class="proof-tagline">
         Building on a legacy of convergence
@@ -72,7 +93,7 @@
   </section>
 
   <!-- Three Main Cards -->
-  <section class="cards-grid">
+  <section class="cards-grid" id="tracks">
     <article class="card philosophy">
       <div class="card-preview">
         <div class="card-badge">Physics &amp; Philosophy</div>
@@ -168,7 +189,7 @@
   </section>
 
   <!-- Why 2026 Section -->
-  <section class="why-2026">
+  <section class="why-2026" id="why-2026">
     <h2 class="why-2026-title">The Convergence Moment</h2>
     <p class="why-2026-intro">
       Quantum computing and web3 communities have evolved in parallel—brilliant minds 
@@ -215,7 +236,7 @@
   </section>
 
   <!-- FAQ Section -->
-  <section class="faq-section">
+  <section class="faq-section" id="faq">
     <h2 class="faq-title">Frequently Asked Questions</h2>
     
     <div class="faq-grid">
@@ -464,6 +485,55 @@
     </div>
   </div>
 
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-about">
+        <h3>Quredge</h3>
+        <p>
+          Quantum Residency at Edge City—where pioneering researchers, web3 builders, 
+          and visionaries converge to explore the future of quantum technology.
+        </p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+          <a href="#" class="social-link" aria-label="GitHub">⚙</a>
+          <a href="mailto:contact@quredge.com" class="social-link" aria-label="Email">✉</a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#why-2026">Why 2026</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Get Involved</h4>
+        <ul class="footer-links">
+          <li><a href="#" data-modal="interest-form-modal">Apply Now</a></li>
+          <li><a href="#">Become a Sponsor</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="/admin.html">Admin Dashboard</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p class="footer-copyright">© 2026 Quredge. All rights reserved.</p>
+      <p class="footer-tagline">Where Quantum Meets web3</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
+
   <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
@@ -476,6 +546,7 @@
   <script type="module" src="js/micro-interactions.js"></script>
   <script src="js/expandable-cards.js"></script>
   <script src="js/form-handler.js"></script>
+  <script src="js/navigation.js"></script>
   
   <!-- Modal Script - Inline for reliability -->
   <script>
