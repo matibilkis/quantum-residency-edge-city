@@ -1,12 +1,7 @@
-/* Beautiful Expand Arrow - UX Optimized */
+/* Hide expand arrow - cards are always expanded */
 
 .card-expand-btn {
-  /* Positioning */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0.75rem auto 0 auto;
-  padding: 0.5rem;
+  display: none;
   
   /* Size */
   width: 40px;
