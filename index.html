@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/social-proof.css">
   <link rel="stylesheet" href="css/cards.css">
   <link rel="stylesheet" href="css/cards-expandable.css">
   <link rel="stylesheet" href="css/expand-arrow.css">
+  <link rel="stylesheet" href="css/about-section.css">
   <link rel="stylesheet" href="css/why-2026.css">
   <link rel="stylesheet" href="css/faq.css">
   <link rel="stylesheet" href="css/modal.css">
@@ -39,7 +39,6 @@
       
       <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#tracks">Tracks</a></li>
         <li><a href="#why-2026">Why 2026</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><button class="nav-cta-btn" data-modal="interest-form-modal">Apply</button></li>
@@ -66,34 +65,19 @@
     </p>
   </header>
 
-  <!-- Social Proof Section -->
-  <section class="social-proof" id="about">
-    <div class="proof-content">
-      <p class="proof-tagline">
-        Building on a legacy of convergence
-      </p>
-      <div class="proof-stats">
-        <div class="stat-item">
-          <span class="stat-number">200+</span>
-          <span class="stat-label">Projects Generated</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">$1M+</span>
-          <span class="stat-label">In Grants</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">12,000+</span>
-          <span class="stat-label">Edge City Participants</span>
-        </div>
-      </div>
-      <p class="proof-subtitle">
-        Past Edge City cohorts created lasting collaborations that continue years later
+  <!-- About Section: Unified Social Proof + Tracks -->
+  <section class="about-section" id="about">
+    <!-- Introduction -->
+    <div class="about-intro">
+      <h2 class="about-title">Three Convergence Vectors</h2>
+      <p class="about-description">
+        Quredge brings together three worlds that rarely intersect: quantum physics, web3 technology, 
+        and transdisciplinary collaboration. Each track offers a unique lens on the quantum-web3 convergence.
       </p>
     </div>
-  </section>
 
-  <!-- Three Main Cards -->
-  <section class="cards-grid" id="tracks">
+    <!-- Three Main Cards -->
+    <div class="cards-grid">
     <article class="card philosophy">
       <div class="card-preview">
         <div class="card-badge">Physics &amp; Philosophy</div>
@@ -186,6 +170,29 @@
         </svg>
       </button>
     </article>
+    </div>
+
+    <!-- Impact Stats -->
+    <div class="about-stats">
+      <p class="stats-tagline">Building on a legacy of convergence</p>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">200+</span>
+          <span class="stat-label">Projects Generated</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">$1M+</span>
+          <span class="stat-label">In Grants</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">12,000+</span>
+          <span class="stat-label">Edge City Participants</span>
+        </div>
+      </div>
+      <p class="stats-subtitle">
+        Past Edge City cohorts created lasting collaborations that continue years later
+      </p>
+    </div>
   </section>
 
   <!-- Why 2026 Section -->
@@ -505,8 +512,7 @@
       <div class="footer-section">
         <h4>Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#about">About & Tracks</a></li>
           <li><a href="#why-2026">Why 2026</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
