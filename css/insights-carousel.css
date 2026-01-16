@@ -105,8 +105,9 @@
 .carousel-wrapper {
   position: relative;
   overflow: hidden;
-  height: 240px;
-  margin-bottom: 1.5rem;
+  height: 265px;
+  width: 100%;
+  margin-bottom: .3rem;
 }
 
 .carousel-track {
