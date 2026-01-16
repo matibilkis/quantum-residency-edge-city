@@ -6,7 +6,7 @@ Blending hardcore quantum physics and technology research with high-trust develo
 
 # web3 ecosystem
 
-Quantum and web3 ecosystems rarely intersect, and if they do, PQC is the main glue. The speech is simple: web3 is more than sending money through blockchain, and quantum is way more than protecting smart contracts against Shor's algorithm. What then? Quredge will find out!
+Web3 is more than sending money through blockchain, and quantum is way more than protecting smart contracts against Shor's algorithm via post-quantum cryptography. What then? Quredge will find out!
 
 ---
 
