@@ -31,7 +31,7 @@ export function initCloudAnimation() {
   timeline.add({
     targets: clouds.philosophy,
     translateX: [0, 420],
-    translateY: [0, -5],
+    translateY: [0, -25],
     scale: [1, 1.5],
     opacity: [0.5, 0.7],
     rotate: [0, 8],
@@ -42,7 +42,7 @@ export function initCloudAnimation() {
   // Web3 cloud (center) - pulses bigger and rises
   timeline.add({
     targets: clouds.web3,
-    translateY: [0, -10],
+    translateY: [0, -25],
     scale: [1, 1.6],
     opacity: [0.5, 0.75],
     duration: 1000,
@@ -53,7 +53,7 @@ export function initCloudAnimation() {
   timeline.add({
     targets: clouds.transdisciplinary,
     translateX: [0, -420],
-    translateY: [0, -5],
+    translateY: [0, -25],
     scale: [1, 1.5],
     opacity: [0.5, 0.7],
     rotate: [0, -8],
@@ -73,7 +73,7 @@ export function initCloudAnimation() {
   timeline.add({
     targets: clouds.philosophy,
     translateX: [420, 0],
-    translateY: [-5, 0],
+    translateY: [-25, 0],
     scale: [1.5, 1],
     opacity: [0.7, 0.5],
     rotate: [8, 0],
@@ -84,7 +84,7 @@ export function initCloudAnimation() {
   // Web3 cloud returns to center
   timeline.add({
     targets: clouds.web3,
-    translateY: [-10, 0],
+    translateY: [-25, 0],
     scale: [1.6, 1],
     opacity: [0.75, 0.5],
     duration: 1000,
@@ -95,7 +95,7 @@ export function initCloudAnimation() {
   timeline.add({
     targets: clouds.transdisciplinary,
     translateX: [-420, 0],
-    translateY: [-5, 0],
+    translateY: [-25, 0],
     scale: [1.5, 1],
     opacity: [0.7, 0.5],
     rotate: [-8, 0],
