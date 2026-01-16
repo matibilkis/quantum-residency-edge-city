@@ -2,8 +2,8 @@
 
 .insights-section {
   max-width: 1400px;
-  margin: 3rem auto;
-  padding: 3rem 2rem;
+  margin: 2rem auto 3rem;
+  padding: 2rem 2rem 3rem;
   position: relative;
   z-index: 10;
 }
