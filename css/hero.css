@@ -1,28 +1,41 @@
 /* Hero Section & Cloud Animation */
 .hero-title {
   font-family: var(--font-mono);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 900;
-  color: var(--primary);
-  margin-bottom: 2px;
-  text-shadow: 0 1px 14px #1ecbe126;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 20px rgba(30, 203, 225, 0.4);
   animation: fadeInUp 0.65s ease-out;
-  line-height: 1;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
 }
 
 .subtitle {
-  font-size: 0.8rem;
-  color: #aac0c7;
-  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.75rem;
   font-weight: 400;
-  max-width: 450px;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   font-family: var(--font-sans);
-  text-shadow: 0 1px 5px #013e5438;
   animation: fadeInUp 0.65s ease-out 0.12s both;
-  line-height: 1.2;
-  padding: 0 6px;
+  line-height: 1.6;
+  padding: 0 1.5rem;
+}
+
+.subtitle-meta {
+  font-size: 0.75rem;
+  color: var(--primary);
+  margin-top: 0.5rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  animation: fadeInUp 0.65s ease-out 0.18s both;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.9;
 }
 
 /* Cloud Convergence Container */

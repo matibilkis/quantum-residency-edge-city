@@ -17,8 +17,7 @@
   <link rel="stylesheet" href="css/cards-expandable.css">
   <link rel="stylesheet" href="css/expand-arrow.css">
   <link rel="stylesheet" href="css/about-section.css">
-  <link rel="stylesheet" href="css/why-2026.css">
-  <link rel="stylesheet" href="css/faq.css">
+  <link rel="stylesheet" href="css/insights-carousel.css">
   <link rel="stylesheet" href="css/modal.css">
   <link rel="stylesheet" href="css/modal-scroll-fix.css">
   <link rel="stylesheet" href="css/particles.css">
@@ -39,8 +38,7 @@
       
       <ul class="nav-links" id="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#why-2026">Why 2026</a></li>
-        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#why-2026">Why 2026 & FAQ</a></li>
         <li><button class="nav-cta-btn" data-modal="interest-form-modal">Apply</button></li>
       </ul>
     </div>
@@ -60,22 +58,15 @@
     
     <h1 class="hero-title">Where Quantum Meets web3</h1>
     <p class="subtitle">
-      Quredge - Quantum Residency at Edge City<br>
-      for pioneering thinkers, founders, and VCs merging science, tech, and society
+      Month-long quantum residency at Edge City. Join quantum researchers, blockchain architects, philosophers, 
+      and builders for intensive collaboration on post-quantum cryptography, distributed quantum computing, 
+      and the future of cryptographic security.
     </p>
+    <p class="subtitle-meta">May 2026 | Esmeralda, CA</p>
   </header>
 
   <!-- About Section: Unified Social Proof + Tracks -->
   <section class="about-section" id="about">
-    <!-- Introduction -->
-    <div class="about-intro">
-      <h2 class="about-title">Three Convergence Vectors</h2>
-      <p class="about-description">
-        Quredge brings together three worlds that rarely intersect: quantum physics, web3 technology, 
-        and transdisciplinary collaboration. Each track offers a unique lens on the quantum-web3 convergence.
-      </p>
-    </div>
-
     <!-- Three Main Cards -->
     <div class="cards-grid">
     <article class="card philosophy">
@@ -195,118 +186,96 @@
     </div>
   </section>
 
-  <!-- Why 2026 Section -->
-  <section class="why-2026" id="why-2026">
-    <h2 class="why-2026-title">The Convergence Moment</h2>
-    <p class="why-2026-intro">
-      Quantum computing and web3 communities have evolved in parallel—brilliant minds 
-      solving complementary problems, rarely intersecting. 2026 marks an inflection point.
-    </p>
-    
-    <div class="convergence-grid">
-      <article class="convergence-item">
-        <h3>Post-Quantum Cryptography Becomes Real</h3>
-        <p>
-          Standards are stable. The conversation shifts from "if" to "how." 
-          Quantum researchers and blockchain architects need each other—now more than ever.
-        </p>
-      </article>
+  <!-- Why 2026 & FAQ - Two Column Carousel Layout -->
+  <section class="insights-section" id="why-2026">
+    <div class="insights-container">
       
-      <article class="convergence-item">
-        <h3>Distributed Quantum Computing Emerges</h3>
-        <p>
-          Networks of quantum processors require new coordination models. 
-          Web3's decentralized infrastructure offers unexpected frameworks for quantum resource sharing.
-        </p>
-      </article>
+      <!-- Why 2026 Column -->
+      <div class="insights-column">
+        <div class="insights-header">
+          <h2 class="insights-title">Why 2026?</h2>
+          <div class="carousel-controls" data-carousel="why2026">
+            <button class="carousel-prev" aria-label="Previous">‹</button>
+            <span class="carousel-dots"></span>
+            <button class="carousel-next" aria-label="Next">›</button>
+          </div>
+        </div>
+        
+        <div class="carousel-wrapper" data-carousel-id="why2026">
+          <div class="carousel-track">
+            <article class="carousel-item active">
+              <h3>Post-Quantum Cryptography Becomes Real</h3>
+              <p>Standards are stable. The conversation shifts from "if" to "how." Quantum researchers and blockchain architects need each other—now more than ever.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>Distributed Quantum Computing Emerges</h3>
+              <p>Networks of quantum processors require new coordination models. Web3's decentralized infrastructure offers unexpected frameworks for quantum resource sharing.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>The Translation Challenge</h3>
+              <p>Quantum mechanics resists intuition. Web3 builders need conceptual bridges. Artists and philosophers become essential—translating between worlds.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>Collaboration Windows Are Rare</h3>
+              <p>Deep technical communities don't naturally intersect. When they do—through intentional gathering like Edge City—the outcomes echo for years.</p>
+            </article>
+          </div>
+        </div>
+        
+        <p class="insights-footer">Ideas shaped in May 2026 will influence quantum-web3 convergence for the next decade.</p>
+      </div>
       
-      <article class="convergence-item">
-        <h3>The Translation Challenge</h3>
-        <p>
-          Quantum mechanics resists intuition. Web3 builders need conceptual bridges. 
-          Artists and philosophers become essential—translating between worlds.
-        </p>
-      </article>
+      <!-- FAQ Column -->
+      <div class="insights-column">
+        <div class="insights-header">
+          <h2 class="insights-title" id="faq">FAQ</h2>
+          <div class="carousel-controls" data-carousel="faq">
+            <button class="carousel-prev" aria-label="Previous">‹</button>
+            <span class="carousel-dots"></span>
+            <button class="carousel-next" aria-label="Next">›</button>
+          </div>
+        </div>
+        
+        <div class="carousel-wrapper" data-carousel-id="faq">
+          <div class="carousel-track">
+            <article class="carousel-item active">
+              <h3>Will quantum computing break blockchain?</h3>
+              <p>Eventually, yes—but the timeline matters. Quantum computers capable of breaking current cryptographic signatures will likely arrive in the coming years. At Quredge, quantum researchers and web3 builders collaborate on understanding the threat landscape and building solutions.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>What is post-quantum cryptography?</h3>
+              <p>PQC uses mathematical problems believed to resist quantum attacks—lattice problems, multivariate polynomials. Standards have been finalized, and the conversation now shifts to implementation. The residency brings together those who understand the theory with those building the infrastructure.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>What is distributed quantum computing?</h3>
+              <p>Rather than single quantum processors, distributed networks of quantum resources working together. Web3's decentralized coordination models offer unexpected frameworks for quantum resource sharing, privacy-preserving computation, and new governance structures.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>Do I need deep technical background?</h3>
+              <p>It depends on your track. Quantum researchers typically have PhDs or equivalent experience. Web3 builders bring blockchain expertise. Philosophers and artists bring conceptual frameworks. The magic happens when different types of expertise converge—curiosity matters more than credentials.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>Why transdisciplinary collaboration?</h3>
+              <p>Quantum mechanics resists intuition. Metaphors unlock understanding. Historically, breakthroughs emerge at disciplinary boundaries—Feynman diagrams, nature-inspired algorithms. Artists and philosophers help translate between quantum physicists and web3 builders.</p>
+            </article>
+            
+            <article class="carousel-item">
+              <h3>What outcomes can I expect?</h3>
+              <p>Depends on your role. Researchers: collaborative papers, code repositories. Builders: prototype quantum-safe protocols, partnerships. Philosophers: new frameworks, publications. All participants: lasting collaborations that continue years after the residency ends.</p>
+            </article>
+          </div>
+        </div>
+        
+        <p class="insights-footer">Curiosity matters more than credentials.</p>
+      </div>
       
-      <article class="convergence-item">
-        <h3>Collaboration Windows Are Rare</h3>
-        <p>
-          Deep technical communities don't naturally intersect. When they do—through 
-          intentional gathering like Edge City—the outcomes echo for years.
-        </p>
-      </article>
-    </div>
-    
-    <p class="why-2026-conclusion">
-      Ideas shaped in May 2026 will influence quantum-web3 convergence for the next decade.
-    </p>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section" id="faq">
-    <h2 class="faq-title">Frequently Asked Questions</h2>
-    
-    <div class="faq-grid">
-      <article class="faq-item">
-        <h3 class="faq-question">Will quantum computing actually break blockchain?</h3>
-        <p class="faq-answer">
-          Eventually, yes—but the timeline matters. Quantum computers capable of breaking 
-          current cryptographic signatures will likely arrive in the coming years. Post-quantum 
-          cryptography offers protection. At Quredge, quantum researchers and web3 builders 
-          collaborate directly on understanding the threat landscape and building solutions.
-        </p>
-      </article>
-      
-      <article class="faq-item">
-        <h3 class="faq-question">What is post-quantum cryptography?</h3>
-        <p class="faq-answer">
-          PQC uses mathematical problems believed to resist quantum attacks—lattice problems, 
-          multivariate polynomials. Standards have been finalized, and the conversation now 
-          shifts to implementation. The residency brings together those who understand the 
-          theory with those building the infrastructure.
-        </p>
-      </article>
-      
-      <article class="faq-item">
-        <h3 class="faq-question">What is distributed quantum computing?</h3>
-        <p class="faq-answer">
-          Rather than single quantum processors, distributed networks of quantum resources 
-          working together. Web3's decentralized coordination models offer unexpected 
-          frameworks for quantum resource sharing, privacy-preserving computation, and 
-          new governance structures.
-        </p>
-      </article>
-      
-      <article class="faq-item">
-        <h3 class="faq-question">Do I need deep technical background?</h3>
-        <p class="faq-answer">
-          It depends on your track. Quantum researchers typically have PhDs or equivalent 
-          experience. Web3 builders bring blockchain expertise. Philosophers and artists 
-          bring conceptual frameworks. The magic happens when different types of expertise 
-          converge—curiosity matters more than credentials.
-        </p>
-      </article>
-      
-      <article class="faq-item">
-        <h3 class="faq-question">Why does transdisciplinary collaboration matter?</h3>
-        <p class="faq-answer">
-          Quantum mechanics resists intuition. Metaphors unlock understanding. Historically, 
-          breakthroughs emerge at disciplinary boundaries—Feynman diagrams, nature-inspired 
-          algorithms. Artists and philosophers help translate between quantum physicists and 
-          web3 builders, creating conceptual bridges that enable new applications.
-        </p>
-      </article>
-      
-      <article class="faq-item">
-        <h3 class="faq-question">What outcomes can I expect?</h3>
-        <p class="faq-answer">
-          Depends on your role. Researchers: collaborative papers, code repositories, new 
-          research directions. Builders: prototype quantum-safe protocols, deep technical 
-          understanding, partnerships. Philosophers: new frameworks, publications, long-term 
-          networks. All participants: lasting collaborations that continue years after the 
-          residency ends.
-        </p>
-      </article>
     </div>
   </section>
 
@@ -513,8 +482,7 @@
         <h4>Quick Links</h4>
         <ul class="footer-links">
           <li><a href="#about">About & Tracks</a></li>
-          <li><a href="#why-2026">Why 2026</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#why-2026">Why 2026 & FAQ</a></li>
         </ul>
       </div>
       
@@ -553,6 +521,7 @@
   <script src="js/expandable-cards.js"></script>
   <script src="js/form-handler.js"></script>
   <script src="js/navigation.js"></script>
+  <script src="js/carousel.js"></script>
   
   <!-- Modal Script - Inline for reliability -->
   <script>
