@@ -4,7 +4,7 @@ Blending hardcore quantum physics and technology research with high-trust develo
 
 ---
 
-# web3 ecosystem
+# web3 and blockchain
 
 Web3 is more than sending money through blockchain, and quantum is way more than protecting smart contracts against Shor's algorithm via post-quantum cryptography. What then? Quredge will find out!
 
