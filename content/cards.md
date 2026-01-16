@@ -1,8 +1,5 @@
 # Physics & Philosophy | Quantum Foundations & Philosophy
 
-Why quantum cryptography works: Deep understanding of uncertainty, 
-measurement, and the nature of distributed systems.
-
 For researchers seeking to bridge theory and real-world impact. Collaborate 
 with web3 architects on the philosophical implications of post-quantum 
 signatures and distributed quantum computing. Explore why metaphors matter 
