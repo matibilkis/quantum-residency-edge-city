@@ -59,20 +59,21 @@
   position: relative;
   transition: all 0.2s ease;
   will-change: transform;
-  width: 130px;
+  width: 220px;
   height: auto;
+  opacity: 0.5;
 }
 
 .cloud-philosophy {
-  filter: drop-shadow(0 2px 10px rgba(46, 236, 184, 0.26));
+  filter: drop-shadow(0 2px 10px rgba(46, 236, 184, 0.18));
 }
 
 .cloud-web3 {
-  filter: drop-shadow(0 2px 10px rgba(227, 102, 247, 0.25));
+  filter: drop-shadow(0 2px 10px rgba(227, 102, 247, 0.18));
 }
 
 .cloud-transdisciplinary {
-  filter: drop-shadow(0 2px 10px rgba(254, 199, 72, 0.22));
+  filter: drop-shadow(0 2px 10px rgba(254, 199, 72, 0.16));
 }
 
 /* Animations */
@@ -106,7 +107,7 @@
   }
 
   .cloud {
-    width: 120px;
+    width: 180px;
   }
   
   .hero-title {
@@ -131,7 +132,7 @@
   }
 
   .cloud {
-    width: 90px;
+    width: 140px;
   }
   
   .hero-title {

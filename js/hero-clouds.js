@@ -32,8 +32,8 @@ export function initCloudAnimation() {
     targets: clouds.philosophy,
     translateX: [0, 420],
     translateY: [0, -5],
-    scale: [1, 1.25],
-    opacity: [0.8, 1],
+    scale: [1, 1.5],
+    opacity: [0.5, 0.7],
     rotate: [0, 8],
     duration: 1000,
     easing: 'easeInOutQuart'
@@ -43,8 +43,8 @@ export function initCloudAnimation() {
   timeline.add({
     targets: clouds.web3,
     translateY: [0, -10],
-    scale: [1, 1.3],
-    opacity: [0.85, 1],
+    scale: [1, 1.6],
+    opacity: [0.5, 0.75],
     duration: 1000,
     easing: 'easeInOutQuart'
   }, 0);
@@ -54,8 +54,8 @@ export function initCloudAnimation() {
     targets: clouds.transdisciplinary,
     translateX: [0, -420],
     translateY: [0, -5],
-    scale: [1, 1.25],
-    opacity: [0.8, 1],
+    scale: [1, 1.5],
+    opacity: [0.5, 0.7],
     rotate: [0, -8],
     duration: 1000,
     easing: 'easeInOutQuart'
@@ -74,8 +74,8 @@ export function initCloudAnimation() {
     targets: clouds.philosophy,
     translateX: [420, 0],
     translateY: [-5, 0],
-    scale: [1.25, 1],
-    opacity: [1, 0.8],
+    scale: [1.5, 1],
+    opacity: [0.7, 0.5],
     rotate: [8, 0],
     duration: 1000,
     easing: 'easeInOutQuart'
@@ -85,8 +85,8 @@ export function initCloudAnimation() {
   timeline.add({
     targets: clouds.web3,
     translateY: [-10, 0],
-    scale: [1.3, 1],
-    opacity: [1, 0.85],
+    scale: [1.6, 1],
+    opacity: [0.75, 0.5],
     duration: 1000,
     easing: 'easeInOutQuart'
   }, 1200);
@@ -96,8 +96,8 @@ export function initCloudAnimation() {
     targets: clouds.transdisciplinary,
     translateX: [-420, 0],
     translateY: [-5, 0],
-    scale: [1.25, 1],
-    opacity: [1, 0.8],
+    scale: [1.5, 1],
+    opacity: [0.7, 0.5],
     rotate: [-8, 0],
     duration: 1000,
     easing: 'easeInOutQuart'
