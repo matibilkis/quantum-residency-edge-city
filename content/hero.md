@@ -1,5 +1,7 @@
-Where Quantum Computing Meets Web3 Security
+Where quantum meets Web3
 
-A month-long quantum residency at Edge City Esmeralda, co-habitated by scientific researchers, blockchain architects, web3 developers, artists, engineers, and builders for intensive collaboration.
+The quantum residency at Edge City Esmeralda pop-up village. 
+
+Ecosystem intersector, co-habitated by quantum researchers, web3 engineers, and aritists for  intensive collaboration.
 
 Edge City Esmeralda | (May 30 - June 27) | Heldsbourg, California
