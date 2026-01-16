@@ -4,7 +4,7 @@ Quredge is quite unique to seriously discuss collaborations between artists and 
 
 ---
 
-# web3 Ecosystem | Web3 Security & Post-Quantum Cryptography
+# web3 Ecosystem
 
 Web3 is way more than sending money through a blockchain. Quantum tech is also way more than solving discrete logarithm problems (potentially breaking massively adopted cryptographic protocols such as RSA and ECC, and giving rise to a whole field coined post-quantum cryptography, which is not little). Yet, ecosystems -e.g. Ethereum- lack quantum workforces that identifies, develop, and provide solutions with quantum technologies that go well beyond cryptographic applications. Is there room for an interdisciplinary Quantum Ethereum workforce? Will it be born at Quredge? 
 
