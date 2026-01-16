@@ -1,22 +1,27 @@
 # Physics & Philosophy | Quantum Foundations & Philosophy
 
-For researchers seeking to bridge theory and real-world impact. Collaborate 
-with web3 architects on the philosophical implications of post-quantum 
-signatures and distributed quantum computing. Explore why metaphors matter 
-in quantum application discovery.
+At least two faces of quantum physics are extremely overlapping Edge
+Cityʼs scope: technology and philosophy implications. Many questions on
+these quantum topics have remained open for a while (maybe a century
+by now) and thatʼs a very effective curiosity spark spanning so many
+communities. But many other questions have recently been answered;
+particularly in the tech field: is the second quantum revolution
+happening? Absolutely yes.
 
 
 ---
 
 # web3 Ecosystem | Web3 Security & Post-Quantum Cryptography
 
-Quantum and web3 communities rarely intersect. Learn post-quantum 
-cryptography directly from quantum physicists, explore hybrid signature 
-schemes, and build quantum-safe protocols together.
-
-Understand the cryptographic underpinnings of decentralized identity, 
-governance, and L2 scaling in a quantum-aware world—through deep 
-collaboration across disciplines.
+Ethereum is way more than sending money through a
+blockchain. Quantum tech is also way more than solving discrete
+logarithm problems (potentially breaking some massively adopted
+cryptographic protocols such as RSA, ECC, and giving rise to a
+whole field coined post-quantum cryptography, which is not little).
+Yet, Ethereum lacks a quantum workforce that both identifies,
+develops and provides solutions with quantum technologies (that
+go well beyond cryptographic applications). Is there room for an
+interdisciplinary Quantum Ethereum workforce?
 
 
 
