@@ -12,12 +12,12 @@
 .about-section .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  margin: 0 0 3rem 0;
+  gap: 1rem;
+  margin: 0 0 2rem 0;
   padding: 0;
   position: relative;
   z-index: 10;
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Stats Section - Moved below cards */
