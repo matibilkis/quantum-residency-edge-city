@@ -8,7 +8,7 @@ const cors = require('cors');
 const path = require('path');
 const session = require('express-session');
 const rateLimit = require('express-rate-limit');
-const auth = require('./auth');
+const auth = require('./auth-roles');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
