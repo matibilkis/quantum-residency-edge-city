@@ -1,22 +1,16 @@
-# Physics & Philosophy | Quantum Foundations & Philosophy
+# Quantum Foundations
 
-Quredge is quite unique to seriously discuss collaborations between artists and scientists, and needless to say, web3 engineering, quantum vibe-coding, and any sort of cross-pollination collab that may occur ad Edge and we can’t predict at all. The underlying question is how to optimize brainstorming when it comes to quantum applications research. That’s a trillion-dollar question, yet to be addressed. 
-
----
-
-# web3 Ecosystem
-
-Web3 is way more than sending money through a blockchain. Quantum tech is also way more than solving discrete logarithm problems (potentially breaking massively adopted cryptographic protocols such as RSA and ECC, and giving rise to a whole field coined post-quantum cryptography, which is not little). Yet, ecosystems -e.g. Ethereum- lack quantum workforces that identifies, develop, and provide solutions with quantum technologies that go well beyond cryptographic applications. Is there room for an interdisciplinary Quantum Ethereum workforce? Will it be born at Quredge? 
-
-
+Blending hardcore quantum physics and technology research with high-trust developers, in a dynamical environment **very** unique for interdisciplinary collaborations and proof of concepts.
 
 ---
 
-# Edge City Model | Transdisciplinary Convergence
+# web3 ecosystem
 
-Unlike conferences (one week, surface-level) or universities (multi-year, 
-isolated), Quredge offers one month of intensive, high-trust collaboration 
-where ideas become reality.
+Quantum and web3 ecosystems rarely intersect, and if they do, PQC is the main glue. The speech is simple: web3 is more than sending money through blockchain, and quantum is way more than protecting smart contracts against Shor's algorithm. What then? Quredge will find out!
 
-We bring both quantum & web3 tech firms, research & engineer talent, but also creatives.
+---
+
+# Transdisciplinary Convergence
+
+We offer investors something rare: one month to really know builders and the incubation process. Quredge provides access to engaged capital that understands deep tech timelines.
 
