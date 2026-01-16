@@ -96,8 +96,55 @@
       </button>
     </div>
 
-   
-
+  <div class="orbiting-clouds-container" style="position: relative; width: 350px; height: 120px; margin: 2rem auto 0; pointer-events: none;">
+    <!-- Cloud 1 -->
+    <div class="orbit-cloud orbit-cloud-1" style="position: absolute; left: 0; top: 20px; width: 120px; height: 60px; z-index: 1;">
+      <svg width="120" height="60" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="35" rx="45" ry="25" fill="#fff" opacity="0.94"/>
+        <ellipse cx="40" cy="25" rx="18" ry="13" fill="#fff" opacity="0.96"/>
+        <ellipse cx="84" cy="26" rx="22" ry="16" fill="#fff" opacity="0.97"/>
+      </svg>
+      <span class="cloud-legend" style="font-size: 0.85rem; position: absolute; left: 50%; top: 80%; transform: translate(-50%, 0); color: #555;">
+        Curiosity matters more than credentials.
+      </span>
+    </div>
+    <!-- Cloud 2 -->
+    <div class="orbit-cloud orbit-cloud-2" style="position: absolute; right: 0; top: 0; width: 120px; height: 60px; z-index: 1;">
+      <svg width="120" height="60" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="60" cy="35" rx="48" ry="24" fill="#fff" opacity="0.93"/>
+        <ellipse cx="85" cy="25" rx="15" ry="12" fill="#fff" opacity="0.96"/>
+        <ellipse cx="39" cy="26" rx="21" ry="15" fill="#fff" opacity="0.97"/>
+      </svg>
+      <span class="cloud-legend" style="font-size: 0.85rem; position: absolute; left: 50%; top: 80%; transform: translate(-50%, 0); color: #555;">
+        Ideas shaped in May 2026 will influence quantum-web3 convergence for the next decade.
+      </span>
+    </div>
+    <!-- Animation styles -->
+    <style>
+      .orbit-cloud-1 {
+        animation: orbitCloud1 8s linear infinite;
+        will-change: transform;
+      }
+      .orbit-cloud-2 {
+        animation: orbitCloud2 11s linear infinite;
+        will-change: transform;
+      }
+      @keyframes orbitCloud1 {
+        0%   { transform: translate(0,0) rotate(-7deg) scale(1) }
+        25%  { transform: translate(25px, -12px) rotate(-2deg) scale(1.04) }
+        50%  { transform: translate(38px, 10px) rotate(2deg) scale(1.01) }
+        75%  { transform: translate(17px, 20px) rotate(-3deg) scale(0.99) }
+        100% { transform: translate(0,0) rotate(-7deg) scale(1) }
+      }
+      @keyframes orbitCloud2 {
+        0%   { transform: translate(0,0) rotate(4deg) scale(1) }
+        30%  { transform: translate(-25px, 18px) rotate(2deg) scale(1.03) }
+        57%  { transform: translate(-38px, -10px) rotate(-2deg) scale(1.04) }
+        82%  { transform: translate(-17px, -12px) rotate(3deg) scale(0.98) }
+        100% { transform: translate(0,0) rotate(4deg) scale(1) }
+      }
+    </style>
+  </div>
 
   <!-- Why 2026 & FAQ - Two Column Carousel Layout -->
   <section class="insights-section" id="why-2026">
@@ -160,8 +207,7 @@
               </article>
           </div>
         </div>
-        
-        <p class="insights-footer">Ideas shaped in May 2026 will influence quantum-web3 convergence for the next decade.</p>
+
       </div>
       
       <!-- FAQ Column -->
@@ -178,13 +224,18 @@
         <div class="carousel-wrapper" data-carousel-id="faq">
           <div class="carousel-track">
             <article class="carousel-item active">
+                <h3>What is quantum tech?</h3>
+                <p>Quantum tech is a broad term that encompasses a range of technologies, including quantum computing, quantum communication, and quantum sensing. Quantum computing is a type of computing that uses quantum-mechanical phenomena, such as superposition and entanglement, to perform calculations. Quantum communication is a type of communication that uses quantum-mechanical phenomena to transmit information. Quantum sensing is a type of sensing that uses quantum-mechanical phenomena to measure physical quantities.</p>
+              </article>
+
+            <article class="carousel-item active">
               <h3>Will quantum computing break blockchain?</h3>
               <p>Eventually, yes—but the timeline matters. Quantum computers capable of breaking current cryptographic signatures will likely arrive in the coming years. At Quredge, quantum researchers and web3 builders collaborate on understanding the threat landscape and building solutions.</p>
             </article>
             
             <article class="carousel-item">
               <h3>What is post-quantum cryptography?</h3>
-              <p>PQC uses mathematical problems believed to resist quantum attacks—lattice problems, multivariate polynomials. Standards have been finalized, and the conversation now shifts to implementation. The residency brings together those who understand the theory with those building the infrastructure.</p>
+              <p>PQC uses mathematical problems believed to resist quantum attacks—lattice problems, multivariate polynomials. Standards have been finalized, and the conversation now shifts to implementation. The residency brings together those who understand the theory with those building the infrastructure. But we aim for more!</p>
             </article>
             
             <article class="carousel-item">
@@ -194,7 +245,7 @@
             
             <article class="carousel-item">
               <h3>Do I need deep technical background?</h3>
-              <p>It depends on your track. Quantum researchers typically have PhDs or equivalent experience. Web3 builders bring blockchain expertise. Philosophers and artists bring conceptual frameworks. The magic happens when different types of expertise converge—curiosity matters more than credentials.</p>
+              <p>No: you need to bring curiosity and humilty. We expect quantum researchers with PhD level, to Web3 builders developing blockchain applications, to thinkers and creativesbring disruptive conceptual frameworks. The magic happens when different types of expertise converge—curiosity matters more than credentials! </p>
             </article>
             
             <article class="carousel-item">
@@ -204,12 +255,10 @@
             
             <article class="carousel-item">
               <h3>What outcomes can I expect?</h3>
-              <p>Depends on your role. Researchers: collaborative papers, code repositories. Builders: prototype quantum-safe protocols, partnerships. Philosophers: new frameworks, publications. All participants: lasting collaborations that continue years after the residency ends.</p>
+              <p>Depends on your motivation! From learning something new, boosting your curioisty, to start collaborative papers, code repos and even fund your startup! The nice thing of this residency is that the entrepreneur becomes the researcher, who becomes the artist and all toghether pushing to discover new applications for quantum tech. All participants: lasting collaborations that continue years after the residency ends.</p>
             </article>
           </div>
         </div>
-        
-        <p class="insights-footer">Curiosity matters more than credentials.</p>
       </div>
       
     </div>
