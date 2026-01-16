@@ -1,27 +1,12 @@
 # Physics & Philosophy | Quantum Foundations & Philosophy
 
-At least two faces of quantum physics are extremely overlapping Edge
-Cityʼs scope: technology and philosophy implications. Many questions on
-these quantum topics have remained open for a while (maybe a century
-by now) and thatʼs a very effective curiosity spark spanning so many
-communities. But many other questions have recently been answered;
-particularly in the tech field: is the second quantum revolution
-happening? Absolutely yes.
-
+Quredge is quite unique to seriously discuss collaborations between artists and scientists, and needless to say, web3 engineering, quantum vibe-coding, and any sort of cross-pollination collab that may occur ad Edge and we can’t predict at all. The underlying question is how to optimize brainstorming when it comes to quantum applications research. That’s a trillion-dollar question, yet to be addressed. 
 
 ---
 
 # web3 Ecosystem | Web3 Security & Post-Quantum Cryptography
 
-Ethereum is way more than sending money through a
-blockchain. Quantum tech is also way more than solving discrete
-logarithm problems (potentially breaking some massively adopted
-cryptographic protocols such as RSA, ECC, and giving rise to a
-whole field coined post-quantum cryptography, which is not little).
-Yet, Ethereum lacks a quantum workforce that both identifies,
-develops and provides solutions with quantum technologies (that
-go well beyond cryptographic applications). Is there room for an
-interdisciplinary Quantum Ethereum workforce?
+Web3 is way more than sending money through a blockchain. Quantum tech is also way more than solving discrete logarithm problems (potentially breaking massively adopted cryptographic protocols such as RSA and ECC, and giving rise to a whole field coined post-quantum cryptography, which is not little). Yet, ecosystems -e.g. Ethereum- lack quantum workforces that identifies, develop, and provide solutions with quantum technologies that go well beyond cryptographic applications. Is there room for an interdisciplinary Quantum Ethereum workforce? Will it be born at Quredge? 
 
 
 
@@ -33,7 +18,5 @@ Unlike conferences (one week, surface-level) or universities (multi-year,
 isolated), Quredge offers one month of intensive, high-trust collaboration 
 where ideas become reality.
 
-Scientists, builders, artists, and investors live together, cook together, 
-create together. Past Edge City cohorts generated 200+ projects, $1M+ in 
-grants, and lasting collaborations that continue years later.
+We bring both quantum & web3 tech firms, research & engineer talent, but also creatives.
 
