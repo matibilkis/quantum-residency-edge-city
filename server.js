@@ -13,6 +13,9 @@ const auth = require('./auth-roles');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Trust proxy - required for Railway/Heroku/etc
+app.set('trust proxy', 1);
+
 // Rate limiting for form submissions
 const formLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
