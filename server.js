@@ -9,6 +9,7 @@ const path = require('path');
 const session = require('express-session');
 const rateLimit = require('express-rate-limit');
 const auth = require('./auth-roles');
+const emailService = require('./email-service');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -112,7 +113,7 @@ app.post('/api/interest', formLimiter, (req, res) => {
     VALUES (?, ?, ?, ?, ?)
   `;
   
-  db.run(insertQuery, [name, email, curiosity, participation, institution || null], function(err) {
+  db.run(insertQuery, [name, email, curiosity, participation, institution || null], async function(err) {
     if (err) {
       console.error('Error inserting data:', err.message);
       return res.status(500).json({ 
@@ -120,6 +121,18 @@ app.post('/api/interest', formLimiter, (req, res) => {
         message: 'Error saving your response. Please try again.' 
       });
     }
+    
+    // Send email notification (async, don't wait for it)
+    emailService.sendFormSubmissionNotification({
+      name,
+      email,
+      curiosity,
+      participation,
+      institution
+    }).catch(err => {
+      // Log email error but don't fail the request
+      console.error('Email notification failed:', err.message);
+    });
     
     res.json({ 
       success: true, 
