@@ -312,9 +312,10 @@
       document.getElementById('total-count').textContent = stats.total || 0;
       
       const byParticipation = stats.byParticipation || [];
-      const attendantCount = byParticipation.find(s => s.participation === 'attendant')?.count || 0;
-      const sponsorCount = byParticipation.find(s => s.participation === 'sponsor')?.count || 0;
-      const bothCount = byParticipation.find(s => s.participation === 'both')?.count || 0;
+      // Parse counts as integers (they come as strings from the database)
+      const attendantCount = parseInt(byParticipation.find(s => s.participation === 'attendant')?.count || 0, 10);
+      const sponsorCount = parseInt(byParticipation.find(s => s.participation === 'sponsor')?.count || 0, 10);
+      const bothCount = parseInt(byParticipation.find(s => s.participation === 'both')?.count || 0, 10);
       
       document.getElementById('attendant-count').textContent = attendantCount + bothCount;
       document.getElementById('sponsor-count').textContent = sponsorCount + bothCount;

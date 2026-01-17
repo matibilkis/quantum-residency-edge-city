@@ -4,8 +4,11 @@
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
+  height: 100dvh; /* Use dynamic viewport height for mobile */
   background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(4px);
   z-index: 1000;
@@ -40,7 +43,7 @@
   transform: scale(0.9);
   opacity: 0;
   animation: scaleIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
-  max-height: calc(100vh - 80px);
+  max-height: calc(100dvh - 80px); /* Use dynamic viewport height for mobile */
   overflow-y: auto;
   /* Enable native scrolling */
   overscroll-behavior: contain;
@@ -48,6 +51,8 @@
   touch-action: pan-y;
   /* Ensure pointer events work */
   pointer-events: auto;
+  /* Prevent form from moving when keyboard appears on mobile */
+  transform-origin: center center;
 }
 
 .modal-close {
@@ -183,9 +188,18 @@
 
 /* Responsive */
 @media (max-width: 768px) {
+  .modal-overlay {
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .modal-card {
     padding: 2rem 1.5rem;
-    margin: 20px auto;
+    margin: 10px auto;
+    /* Prevent form from moving when keyboard appears */
+    position: relative;
+    transform-origin: center center;
   }
   
   .modal-title {
@@ -198,6 +212,14 @@
   
   .modal-section h3 {
     font-size: 1.2rem;
+  }
+  
+  /* Prevent input zoom on iOS */
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px !important;
   }
 }
 

@@ -116,6 +116,10 @@
   .form-modal {
     max-width: 95vw;
     padding: 1.5rem;
+    /* Prevent form from moving when keyboard appears */
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 20px;
   }
   
   .form-group {
@@ -132,6 +136,8 @@
   .form-group select {
     font-size: 0.9375rem;
     padding: 0.625rem 0.875rem;
+    /* Prevent zoom on focus on iOS */
+    font-size: 16px;
   }
 }
 
