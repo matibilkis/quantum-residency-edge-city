@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Quredge: Quantum Residency Where Web3 Meets Physics</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,viewport-fit=cover">
   <meta name="description" content="Join pioneering quantum researchers, web3 builders, and VCs for a month at Edge City. Explore post-quantum cryptography, distributed quantum computing, and radical collaboration.">
   
   <!-- Fonts -->
@@ -614,77 +614,21 @@
       const triggers = document.querySelectorAll('[data-modal]');
       const modals = document.querySelectorAll('.modal-overlay');
       
-      // Store original body styles for restoration
-      let originalBodyStyles = {};
-      
       function openModal(modal) {
-        // Store original body styles
-        originalBodyStyles = {
-          position: document.body.style.position || '',
-          top: document.body.style.top || '',
-          width: document.body.style.width || '',
-          overflow: document.body.style.overflow || ''
-        };
-        
         modal.classList.add('active');
         document.body.classList.add('modal-open');
-        
-        // Prevent body scroll and fix position on mobile
-        const scrollY = window.scrollY;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollY}px`;
-        document.body.style.width = '100%';
         document.body.style.overflow = 'hidden';
-        
         // Stop Lenis smooth scroll completely
         if (window.lenis) {
           window.lenis.stop();
         }
-        
-        // Handle visual viewport changes (mobile keyboard)
-        if (window.visualViewport) {
-          const handleViewportChange = () => {
-            // Keep modal centered when keyboard appears
-            const modalCard = modal.querySelector('.modal-card');
-            if (modalCard) {
-              const vpHeight = window.visualViewport.height;
-              const vpTop = window.visualViewport.offsetTop;
-              modalCard.style.maxHeight = `${vpHeight - 80}px`;
-            }
-          };
-          
-          window.visualViewport.addEventListener('resize', handleViewportChange);
-          window.visualViewport.addEventListener('scroll', handleViewportChange);
-          
-          // Store handler for cleanup
-          modal._viewportHandler = handleViewportChange;
-        }
-        
         window.dispatchEvent(new Event('modalOpen'));
       }
       
       function closeModal(modal) {
         modal.classList.remove('active');
         document.body.classList.remove('modal-open');
-        
-        // Restore original body styles
-        document.body.style.position = originalBodyStyles.position;
-        document.body.style.top = originalBodyStyles.top;
-        document.body.style.width = originalBodyStyles.width;
-        document.body.style.overflow = originalBodyStyles.overflow;
-        
-        // Restore scroll position
-        if (document.body.style.top) {
-          window.scrollTo(0, parseInt(document.body.style.top || '0') * -1);
-        }
-        
-        // Remove visual viewport handlers
-        if (window.visualViewport && modal._viewportHandler) {
-          window.visualViewport.removeEventListener('resize', modal._viewportHandler);
-          window.visualViewport.removeEventListener('scroll', modal._viewportHandler);
-          delete modal._viewportHandler;
-        }
-        
+        document.body.style.overflow = '';
         // Restart Lenis smooth scroll
         if (window.lenis) {
           window.lenis.start();

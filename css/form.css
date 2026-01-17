@@ -118,8 +118,8 @@
     padding: 1.5rem;
     /* Prevent form from moving when keyboard appears */
     position: relative;
-    margin-top: 0;
-    margin-bottom: 20px;
+    transform: translateZ(0); /* Force hardware acceleration */
+    -webkit-transform: translateZ(0);
   }
   
   .form-group {
@@ -136,8 +136,16 @@
   .form-group select {
     font-size: 0.9375rem;
     padding: 0.625rem 0.875rem;
-    /* Prevent zoom on focus on iOS */
-    font-size: 16px;
+    /* Prevent zoom on focus (iOS) */
+    font-size: 16px; /* Minimum 16px prevents iOS zoom */
+  }
+  
+  /* Ensure form inputs don't cause viewport shifts */
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
 }
 
