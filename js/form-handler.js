@@ -95,5 +95,70 @@ document.addEventListener('DOMContentLoaded', function() {
       formStatus.className = 'form-status';
     });
   }
+  
+  // Prevent viewport resize on mobile when keyboard appears
+  if (interestFormModal) {
+    const formInputs = form.querySelectorAll('input, textarea, select');
+    let viewportHeight = window.innerHeight;
+    let isModalOpen = false;
+    
+    // Lock viewport height when modal opens
+    const lockViewport = () => {
+      if (!isModalOpen) {
+        viewportHeight = window.innerHeight;
+        isModalOpen = true;
+        // Set fixed height on modal to prevent keyboard from resizing it
+        interestFormModal.style.height = `${viewportHeight}px`;
+      }
+    };
+    
+    // Unlock viewport when modal closes
+    const unlockViewport = () => {
+      if (isModalOpen) {
+        isModalOpen = false;
+        interestFormModal.style.height = '';
+      }
+    };
+    
+    // Handle modal open/close
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          if (interestFormModal.classList.contains('active')) {
+            lockViewport();
+            // Prevent iOS zoom on input focus and scroll input into view smoothly
+            formInputs.forEach(input => {
+              input.addEventListener('focus', function scrollToInput() {
+                // Use requestAnimationFrame for smooth scrolling
+                requestAnimationFrame(() => {
+                  input.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
+                });
+              }, { once: true });
+            });
+          } else {
+            unlockViewport();
+          }
+        }
+      });
+    });
+    
+    observer.observe(interestFormModal, { attributes: true });
+    
+    // Handle window resize - only update if significant change (not keyboard)
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      if (isModalOpen) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          // Only update if the resize is significant (screen rotation, not keyboard)
+          const heightDiff = Math.abs(window.innerHeight - viewportHeight);
+          if (heightDiff > 150) {
+            viewportHeight = window.innerHeight;
+            interestFormModal.style.height = `${viewportHeight}px`;
+          }
+        }, 100);
+      }
+    });
+  }
 });
 
