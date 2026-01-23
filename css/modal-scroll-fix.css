@@ -1,31 +1,14 @@
 /* Modal Scroll Fix - Ensure native scrolling works in modals */
 
-/* When modal is open, disable Lenis on body */
+/* When modal is open, prevent body scroll */
 body.modal-open {
   overflow: hidden !important;
 }
 
-/* Ensure modal overlays use native scroll */
-.modal-overlay {
-  /* Force native scrolling behavior */
-  scroll-behavior: auto !important;
-}
-
+/* Native scrolling for modals */
 .modal-overlay,
 .modal-card {
-  /* Enable smooth native scrolling on touch devices */
   -webkit-overflow-scrolling: touch;
-  /* Allow vertical panning */
-  touch-action: pan-y !important;
-  /* Prevent scroll chaining to parent */
   overscroll-behavior: contain;
-}
-
-/* Ensure all modal content can be scrolled */
-.modal-overlay *,
-.modal-card * {
-  /* Reset any transform that might interfere */
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
 }
 

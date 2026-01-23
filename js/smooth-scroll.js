@@ -9,14 +9,15 @@ export function initSmoothScroll() {
   }
 
   const lenis = new Lenis({
-    duration: 1.2,
+    duration: 1.0,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     smooth: true,
-    mouseMultiplier: 1.5,
-    smoothTouch: false,
-    touchMultiplier: 2,
+    mouseMultiplier: 1.0,
+    smoothTouch: true,
+    touchMultiplier: 1.0,
     infinite: false,
-    wheelMultiplier: 1.2,
+    wheelMultiplier: 0.8,
+    lerp: 0.1,
     // Prevent Lenis from affecting modals
     prevent: (node) => {
       // Don't apply smooth scroll when modal is open

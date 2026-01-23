@@ -58,9 +58,9 @@
     
     <h1 class="hero-title">Where Quantum Meets web3</h1>
     <p class="subtitle">
-      Month-long quantum residency at <a href="https://www.edgeesmeralda.com/" target="_blank" rel="noopener" style="color: #51ffe1; text-decoration: underline;">Edge City Esmeralda</a>.
+      Month-long quantum residency at <a href="https://www.edgeesmeralda.com/" target="_blank" rel="noopener" style="color: #51ffe1; text-decoration: underline;">Edge Esmeralda</a>.
     </p>
-    <p class="subtitle-meta">Healdsbourg | May 30 - June 27 | Heldsbourg, California</p>
+    <p class="subtitle-meta">May 30 - June 27 | Healdsburg, California</p>
   </header>
 
   <!-- About Section: Unified Social Proof + Tracks -->
@@ -107,7 +107,7 @@
     <p class="stats-tagline" style="margin-bottom:0.5em;">Building on a legacy of convergence</p>
     <div class="stats-grid" style="margin-bottom:0;">
       <div class="stat-item">
-        <span class="stat-number">200+</span>
+        <span class="stat-number">300+</span>
         <span class="stat-label">Projects Generated</span>
       </div>
       <div class="stat-item">
@@ -593,13 +593,11 @@
 
   <!-- External Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
   
   <!-- JavaScript Modules -->
   <script type="module" src="js/content-loader.js"></script>
   <script type="module" src="js/hero-clouds.js"></script>
   <script type="module" src="js/particles.js"></script>
-  <script type="module" src="js/smooth-scroll.js"></script>
   <script type="module" src="js/micro-interactions.js"></script>
   <!-- <script src="js/expandable-cards.js"></script> Disabled - cards are now static -->
   <script src="js/form-handler.js"></script>
@@ -618,22 +616,12 @@
         modal.classList.add('active');
         document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
-        // Stop Lenis smooth scroll completely
-        if (window.lenis) {
-          window.lenis.stop();
-        }
-        window.dispatchEvent(new Event('modalOpen'));
       }
-      
+
       function closeModal(modal) {
         modal.classList.remove('active');
         document.body.classList.remove('modal-open');
         document.body.style.overflow = '';
-        // Restart Lenis smooth scroll
-        if (window.lenis) {
-          window.lenis.start();
-        }
-        window.dispatchEvent(new Event('modalClose'));
       }
       
       // Add click handlers to triggers
