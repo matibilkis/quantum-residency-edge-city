@@ -1,14 +1,22 @@
-/* Modal Scroll Fix - Ensure native scrolling works in modals */
+/* Modal Scroll Fix - Enhanced cross-platform scrolling support */
 
 /* When modal is open, disable Lenis on body */
 body.modal-open {
   overflow: hidden !important;
+  /* Prevent body scroll on iOS */
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 /* Ensure modal overlays use native scroll */
 .modal-overlay {
   /* Force native scrolling behavior */
   scroll-behavior: auto !important;
+  /* Enable hardware acceleration */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .modal-overlay,
@@ -19,12 +27,16 @@ body.modal-open {
   touch-action: pan-y !important;
   /* Prevent scroll chaining to parent */
   overscroll-behavior: contain;
+  overscroll-behavior-y: contain;
 }
 
-/* Ensure all modal content can be scrolled */
-.modal-overlay *,
-.modal-card * {
-  /* Reset any transform that might interfere */
+/* Improve modal content scrolling */
+.modal-sections {
+  /* Enable momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent scroll chaining */
+  overscroll-behavior: contain;
+  /* Hardware acceleration for smooth scrolling */
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }

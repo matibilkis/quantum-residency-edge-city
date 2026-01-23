@@ -75,23 +75,44 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Touch/swipe support
+    // Enhanced touch/swipe support with better cross-platform handling
     let touchStartX = 0;
     let touchEndX = 0;
-    
+    let touchStartY = 0;
+    let isDragging = false;
+
     carousel.addEventListener('touchstart', function(e) {
       touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+      isDragging = false;
     }, { passive: true });
-    
+
+    carousel.addEventListener('touchmove', function(e) {
+      // Detect if this is a horizontal swipe
+      const currentX = e.changedTouches[0].screenX;
+      const currentY = e.changedTouches[0].screenY;
+      const diffX = Math.abs(currentX - touchStartX);
+      const diffY = Math.abs(currentY - touchStartY);
+
+      // If horizontal movement is greater than vertical, it's a swipe
+      if (diffX > diffY && diffX > 10) {
+        isDragging = true;
+        // Prevent vertical scroll during horizontal swipe
+        e.preventDefault();
+      }
+    }, { passive: false });
+
     carousel.addEventListener('touchend', function(e) {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
+      if (isDragging) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      }
     }, { passive: true });
-    
+
     function handleSwipe() {
       const swipeThreshold = 50;
       const diff = touchStartX - touchEndX;
-      
+
       if (Math.abs(diff) > swipeThreshold) {
         if (diff > 0) {
           nextSlide();

@@ -1,11 +1,9 @@
 /* Expandable Cards - Vertical Expansion Instead of Modal */
 
-/* Freeze body scroll when a card is expanded */
+/* Freeze body scroll when a card is expanded - improved cross-platform support */
 body.card-expanded {
   overflow: hidden !important;
-  height: 100vh;
-  position: fixed;
-  width: 100%;
+  /* Position fixed is now handled by JS to preserve scroll position */
 }
 
 .card {
@@ -103,13 +101,27 @@ body.card-expanded {
   max-height: none !important;
 }
 
-/* Show expanded content by default - no expansion needed */
+/* Expanded content with improved scrolling for all platforms */
 .card-expanded-content {
   max-height: none;
   overflow: visible;
   opacity: 1;
   margin-top: 1rem;
   display: block;
+  /* Enable smooth momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
+  /* Prevent scroll chaining */
+  overscroll-behavior: contain;
+  overscroll-behavior-y: contain;
+  /* Allow vertical touch panning */
+  touch-action: pan-y;
+}
+
+/* When card is expanded, make content scrollable */
+.card.expanded .card-expanded-content {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* No scroll indicators needed */
