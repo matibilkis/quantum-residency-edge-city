@@ -14,15 +14,22 @@
   border-radius: var(--radius);
   padding: 1.75rem 1.5rem;
   position: relative;
-  transition: all var(--transition-normal) cubic-bezier(.06,.7,.3,.96);
   box-shadow: var(--shadow-sm);
   z-index: 2;
   overflow: visible;
   cursor: default;
-  will-change: transform, box-shadow;
+  /* Scroll reveal animation */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card.visible:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
   border-color: rgba(255, 255, 255, 0.2);

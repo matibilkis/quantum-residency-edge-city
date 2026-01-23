@@ -57,23 +57,85 @@
 /* Cloud SVG Styling */
 .cloud {
   position: relative;
-  transition: all 0.2s ease;
-  will-change: transform;
   width: 220px;
   height: auto;
   opacity: 0.5;
+  will-change: transform, opacity;
 }
 
 .cloud-philosophy {
   filter: drop-shadow(0 2px 10px rgba(46, 236, 184, 0.18));
+  animation: convergeLeft 4s ease-in-out infinite;
 }
 
 .cloud-web3 {
   filter: drop-shadow(0 2px 10px rgba(227, 102, 247, 0.18));
+  animation: convergeCenter 4s ease-in-out infinite;
 }
 
 .cloud-transdisciplinary {
   filter: drop-shadow(0 2px 10px rgba(254, 199, 72, 0.16));
+  animation: convergeRight 4s ease-in-out infinite;
+}
+
+/* Left cloud: moves right toward center, overlaps, returns */
+@keyframes convergeLeft {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  35% {
+    transform: translateX(80px) translateY(-10px) scale(1.15);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(80px) translateY(-10px) scale(1.15);
+    opacity: 0.7;
+  }
+  85% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* Center cloud: pulses up and grows during convergence */
+@keyframes convergeCenter {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  35% {
+    transform: translateY(-15px) scale(1.2);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.2);
+    opacity: 0.75;
+  }
+  85% {
+    transform: translateY(0) scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* Right cloud: moves left toward center, overlaps, returns */
+@keyframes convergeRight {
+  0%, 100% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.5;
+  }
+  35% {
+    transform: translateX(-80px) translateY(-10px) scale(1.15);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-80px) translateY(-10px) scale(1.15);
+    opacity: 0.7;
+  }
+  85% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.5;
+  }
 }
 
 /* Animations */

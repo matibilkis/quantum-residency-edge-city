@@ -7,11 +7,13 @@
 
 html {
   scroll-behavior: smooth;
+  background: #191c22;
 }
 
 body {
   margin: 0;
   background: linear-gradient(120deg, #191c22 0%, #21404b 100%);
+  background-attachment: fixed;
   min-height: 100vh;
   font-family: var(--font-sans);
   color: var(--white);
