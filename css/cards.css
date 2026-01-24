@@ -102,10 +102,10 @@
 }
 
 .card.philosophy .card-btn:hover {
-  background: var(--philosophy);
-  color: #181d1d;
+  background: rgba(61, 232, 192, 0.2);
+  color: var(--philosophy);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(46, 236, 184, 0.3);
+  box-shadow: 0 4px 16px rgba(61, 232, 192, 0.25);
 }
 
 .card.web3 .card-btn {
@@ -114,10 +114,10 @@
 }
 
 .card.web3 .card-btn:hover {
-  background: var(--web3);
-  color: #2c102d;
+  background: rgba(214, 112, 240, 0.2);
+  color: var(--web3);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(227, 102, 247, 0.3);
+  box-shadow: 0 4px 16px rgba(214, 112, 240, 0.25);
 }
 
 .card.edge .card-btn {
@@ -126,10 +126,10 @@
 }
 
 .card.edge .card-btn:hover {
-  background: var(--transdisciplinary);
-  color: #202900;
+  background: rgba(245, 200, 66, 0.2);
+  color: var(--transdisciplinary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(254, 199, 72, 0.3);
+  box-shadow: 0 4px 16px rgba(245, 200, 66, 0.25);
 }
 
 /* Card Type Styling */
@@ -169,19 +169,19 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-auto-flow: row;
-    gap: 1.2rem;
+    gap: 1.25rem;
   }
-  
+
   .card {
     padding: 1.5rem 1.3rem;
     min-height: auto;
   }
-  
+
   .card-heading {
     font-size: 1.1rem;
     margin-bottom: 0.8rem;
   }
-  
+
   .card-text {
     font-size: 0.88rem;
     line-height: 1.7;
@@ -190,29 +190,29 @@
 
 @media (max-width: 480px) {
   .cards-grid {
-    gap: 1.2rem;
+    gap: 1.25rem;
   }
-  
+
   .card {
     padding: 1.3rem 1.1rem;
   }
-  
+
   .card-heading {
     font-size: 1.05rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .card-badge {
     font-size: 0.7rem;
-    padding: 3px 10px;
+    padding: 4px 10px;
     margin-bottom: 0.7rem;
   }
-  
+
   .card-text {
     font-size: 0.85rem;
     line-height: 1.75;
   }
-  
+
   .card-btn {
     font-size: 0.8rem;
     padding: 0.55rem 1rem;
