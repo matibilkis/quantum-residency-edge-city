@@ -10,11 +10,11 @@
 
 .card {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 1.25rem 1.25rem;
+  padding: clamp(1rem, 1.5vw, 1.5rem) clamp(1rem, 1.5vw, 1.5rem);
   position: relative;
   box-shadow: var(--shadow-sm);
   z-index: 2;
@@ -23,7 +23,7 @@
   /* Scroll reveal animation */
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow var(--transition-normal), border-color var(--transition-normal), background var(--transition-normal);
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow var(--transition-normal), border-color var(--transition-normal), background var(--transition-normal);
 }
 
 .card.visible {
@@ -52,25 +52,25 @@
 }
 
 .card-badge {
-  font-size: 0.65rem;
-  font-family: var(--font-sans);
+  font-size: clamp(0.6rem, 0.7vw, 0.72rem);
+  font-family: var(--font-mono);
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.6rem;
   display: inline-block;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 6px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   opacity: 1;
   visibility: visible;
 }
 
 .card-text {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  line-height: 1.55;
-  color: rgba(255, 255, 255, 0.9);
-  letter-spacing: 0.01em;
+  font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.005em;
   margin: 0;
   display: block;
   visibility: visible;
