@@ -12,14 +12,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = controls.querySelector('.carousel-next');
     const dotsContainer = controls.querySelector('.carousel-dots');
     
+    // Find the initially active item, or default to 0
     let currentIndex = 0;
+    items.forEach((item, index) => {
+      if (item.classList.contains('active')) {
+        currentIndex = index;
+      }
+    });
+    
     const totalItems = items.length;
     
     // Create dots
     for (let i = 0; i < totalItems; i++) {
       const dot = document.createElement('span');
       dot.classList.add('carousel-dot');
-      if (i === 0) dot.classList.add('active');
+      if (i === currentIndex) dot.classList.add('active');
       dot.addEventListener('click', () => goToSlide(i));
       dotsContainer.appendChild(dot);
     }
@@ -46,6 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
+    
+    // Initialize carousel position
+    updateCarousel();
     
     function goToSlide(index) {
       currentIndex = index;
