@@ -14,7 +14,7 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius);
-  padding: 1.75rem 1.5rem;
+  padding: 1.25rem 1.25rem;
   position: relative;
   box-shadow: var(--shadow-sm);
   z-index: 2;
@@ -52,14 +52,14 @@
 }
 
 .card-badge {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-family: var(--font-sans);
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   display: inline-block;
-  padding: 4px 10px;
-  border-radius: 8px;
+  padding: 3px 8px;
+  border-radius: 6px;
   letter-spacing: 0.08em;
   opacity: 1;
   visibility: visible;
@@ -67,8 +67,8 @@
 
 .card-text {
   font-family: var(--font-sans);
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 0.85rem;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.01em;
   margin: 0;
