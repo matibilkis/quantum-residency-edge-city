@@ -2,15 +2,17 @@
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.8rem;
-  
+  gap: 1.25rem;
+
   /* Align cards to start for expansion */
   align-items: start;
 }
 
 .card {
-  background: var(--card-bg);
-  border: 1.5px solid var(--card-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius);
   padding: 1.75rem 1.5rem;
   position: relative;
@@ -21,7 +23,7 @@
   /* Scroll reveal animation */
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, box-shadow var(--transition-normal), border-color var(--transition-normal), background var(--transition-normal);
 }
 
 .card.visible {
@@ -31,8 +33,9 @@
 
 .card.visible:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  border-color: var(--glass-border-hover);
+  background: rgba(30, 38, 50, 0.7);
 }
 
 .card-heading {
@@ -131,30 +134,33 @@
 
 /* Card Type Styling */
 .card.philosophy {
-  border-left: 6px solid var(--philosophy);
+  border-left: 4px solid var(--philosophy);
 }
 
 .card.philosophy .card-badge {
-  background: var(--philosophy);
-  color: #181d1d;
+  background: rgba(61, 232, 192, 0.15);
+  color: var(--philosophy);
+  border: 1px solid rgba(61, 232, 192, 0.3);
 }
 
 .card.web3 {
-  border-left: 6px solid var(--web3);
+  border-left: 4px solid var(--web3);
 }
 
 .card.web3 .card-badge {
-  background: var(--web3);
-  color: #2c102d;
+  background: rgba(214, 112, 240, 0.15);
+  color: var(--web3);
+  border: 1px solid rgba(214, 112, 240, 0.3);
 }
 
 .card.edge {
-  border-left: 6px solid var(--transdisciplinary);
+  border-left: 4px solid var(--transdisciplinary);
 }
 
 .card.edge .card-badge {
-  background: var(--transdisciplinary);
-  color: #202900;
+  background: rgba(245, 200, 66, 0.15);
+  color: var(--transdisciplinary);
+  border: 1px solid rgba(245, 200, 66, 0.3);
 }
 
 /* Responsive */

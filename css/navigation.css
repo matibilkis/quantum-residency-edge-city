@@ -1,16 +1,16 @@
-/* Sticky Navigation Bar */
+/* Sticky Navigation Bar - Glassmorphic */
 .main-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(25, 28, 34, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--glass-border);
   z-index: 9999;
-  padding: 0.75rem 2rem;
-  transition: all 0.3s ease;
+  padding: 0.85rem 2rem;
+  transition: all var(--transition-normal);
   opacity: 0;
   transform: translateY(-100%);
 }
@@ -50,9 +50,9 @@
   font-size: 0.75rem;
   color: var(--white);
   text-decoration: none;
-  opacity: 0.8;
-  transition: all 0.3s ease;
-  letter-spacing: 0.05em;
+  opacity: 0.7;
+  transition: all var(--transition-normal);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   position: relative;
 }
@@ -69,8 +69,9 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--primary);
-  transition: width 0.3s ease;
+  background: linear-gradient(90deg, var(--primary), var(--primary-soft));
+  transition: width var(--transition-normal);
+  border-radius: 1px;
 }
 
 .nav-links a:hover::after,
@@ -85,22 +86,24 @@
 
 .nav-cta-btn {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  padding: 0.5rem 1.2rem;
-  background: linear-gradient(98deg, var(--primary) 60%, var(--accent) 100%);
-  color: var(--edge-dark);
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+  color: #0a0e14;
   border: none;
-  border-radius: 200px;
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 0.05em;
+  transition: all var(--transition-normal);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  box-shadow: 0 2px 12px var(--primary-glow);
 }
 
 .nav-cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(30, 203, 225, 0.4);
+  box-shadow: 0 6px 24px var(--primary-glow);
+  background: linear-gradient(135deg, #5aa5ff 0%, var(--primary) 100%);
 }
 
 /* Mobile menu toggle */
@@ -121,17 +124,19 @@
   right: 2rem;
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-  border: none;
-  border-radius: 50%;
-  color: var(--edge-dark);
-  font-size: 1.5rem;
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  color: var(--primary);
+  font-size: 1.4rem;
   cursor: pointer;
   opacity: 0;
   transform: translateY(100px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--transition-slow);
   z-index: 9998;
-  box-shadow: 0 4px 20px rgba(30, 203, 225, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,12 +148,14 @@
 }
 
 .back-to-top:hover {
-  transform: translateY(-4px) scale(1.1);
-  box-shadow: 0 8px 30px rgba(30, 203, 225, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px var(--primary-glow);
+  border-color: var(--glass-border-hover);
+  background: var(--glass-bg);
 }
 
 .back-to-top:active {
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px);
 }
 
 /* Responsive */
@@ -166,15 +173,17 @@
     top: 100%;
     left: 0;
     right: 0;
-    background: rgba(25, 28, 34, 0.98);
+    background: var(--glass-bg-solid);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     flex-direction: column;
     gap: 0;
     padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--glass-border);
     opacity: 0;
     transform: translateY(-20px);
     pointer-events: none;
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
   }
 
   .nav-links.active {
