@@ -1,10 +1,10 @@
 /* Hero Section & Cloud Animation */
 .hero-title {
   font-family: var(--font-mono);
-  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.6rem;
   text-shadow: 0 4px 30px var(--primary-glow);
   animation: fadeInUp 0.7s ease-out;
   line-height: 1.15;
@@ -12,24 +12,24 @@
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
   font-weight: 400;
-  max-width: 900px;
+  max-width: 850px;
   margin-left: auto;
   margin-right: auto;
   font-family: var(--font-sans);
   animation: fadeInUp 0.7s ease-out 0.12s both;
-  line-height: 1.75;
+  line-height: 1.6;
   padding: 0 1.5rem;
 }
 
 .subtitle-meta {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--primary);
-  margin-top: 0.75rem;
-  margin-bottom: 10px;
+  margin-top: 0.4rem;
+  margin-bottom: 0;
   font-weight: 600;
   font-family: var(--font-mono);
   animation: fadeInUp 0.7s ease-out 0.18s both;
@@ -41,9 +41,9 @@
 /* Cloud Convergence Container */
 .cloud-convergence {
   width: 100%;
-  max-width: 1200px;
-  height: 120px;
-  margin: 0 auto 12px auto;
+  max-width: 1100px;
+  height: 85px;
+  margin: 0 auto 6px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -57,7 +57,7 @@
 /* Cloud SVG Styling */
 .cloud {
   position: relative;
-  width: 220px;
+  width: 180px;
   height: auto;
   opacity: 0.4;
   will-change: transform, opacity;
@@ -164,51 +164,51 @@
 @media (max-width: 768px) {
   .cloud-convergence {
     width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
+    height: 70px;
+    margin-bottom: 4px;
     padding: 0 20px;
   }
 
   .cloud {
-    width: 180px;
+    width: 140px;
   }
-  
+
   .hero-title {
-    font-size: 1.7rem;
-    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
   }
-  
+
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.92rem;
     line-height: 1.5;
     max-width: 90%;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
   }
 }
 
 @media (max-width: 480px) {
   .cloud-convergence {
     width: 100%;
-    height: 80px;
-    margin-bottom: 8px;
+    height: 55px;
+    margin-bottom: 4px;
     padding: 0 12px;
   }
 
   .cloud {
-    width: 140px;
+    width: 110px;
   }
-  
+
   .hero-title {
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.4rem;
     line-height: 1.1;
   }
-  
+
   .subtitle {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     line-height: 1.4;
     max-width: 95%;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
     padding: 0 6px;
   }
 }
