@@ -33,3 +33,7 @@ Thumbs.db
 *.swo
 *~
 
+# Audio and transcripts
+telaudio.ogg
+telaudio-transcript.txt
+
