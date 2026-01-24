@@ -1,30 +1,29 @@
-# Breaking the Discovery Bottleneck
+# Edge Residencies & Tracks
 
-**The Challenge**: Quantum technology capabilities are racing ahead, but real-world applications lag behind. Why? Isolation.
+## Quredge Within the Edge Ecosystem
 
-**The Necessity**: Real, sustained interactions between quantum tech ecosystem and adjacent fields - especially web3, but also arts, philosophy, cognitive science.
+**Edge Esmeralda 2026**: 1000+ builders across tech, science, and culture. Quredge is one node in a rich network of specialized residencies.
 
-## Beyond Post-Quantum Cryptography
+## Direct Overlaps
 
-The quantum-web3 conversation is stuck on "will quantum break blockchain?" Let's go deeper:
+- **d/acc Residency**: Decentralized acceleration, AI safety, identity systems
+- **Consciousness at the Edge**: Foundational questions, measurement problem, observer effects
+- **Health & Bio Residency**: Longevity, drug discovery, biosensing applications
+- **Neurotech Summit**: Brain-computer interfaces, quantum sensors for neural measurement
+- **Tomorrowland (Hard Tech)**: Materials, energy, robotics, space tech
 
-- Distributed quantum computing architectures
-- Quantum blockchain possibilities
-- Blind quantum computing for privacy
-- Quantum money and cryptographic primitives
-- New governance models for quantum resources
+## Weekly Themes Alignment
 
-## Mental Health & Metaphor
+- **Week 1**: Protocols for Flourishing — Consciousness, AI, foundations
+- **Week 2**: Reality Reinvented — d/acc, hard tech, progress studies
+- **Week 3**: Environments of Tomorrow — Neurotech, agtech, cities
+- **Week 4**: Emergent Futures — Demo days, cross-residency showcases
 
-- The power of metaphors in quantum application discovery
-- Mental models that bridge abstract quantum mechanics and tangible problems
-- Creative frameworks that make the unintuitive intuitive
-- Well-being practices that sustain deep thinking
-- Artists as translation layers between quantum physics and human experience
+## The Collision Model
 
-## The Social Experiment
+Unlike conferences (2 days, superficial) or universities (years, siloed), Edge offers **one month of high-trust, transdisciplinary collision**. Quantum physicists meet AI researchers, neurotech builders, consciousness explorers, and hard tech founders.
 
-Bringing quantum hardcore-tech researchers into Edge City's transdisciplinary community. What happens when quantum physicists spend a month with web3 builders, artists, philosophers, and consciousness researchers?
+**Outcomes**: Unexpected collaborations, new application vectors, $250M+ raised by Edge alumni, 8+ papers published
 
-**Outcomes**: Unexpected collaborations, metaphor frameworks that stick, new application vectors, and healthier researchers
+[See all Edge Esmeralda tracks](https://www.edgeesmeralda.com/)
 

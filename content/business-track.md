@@ -1,27 +1,32 @@
-# For Investors: A Month That Matters
+# Frontier Technology Track
 
-This isn't another pitch day or demo session. Quredge offers investors and VCs something rare:
+Quantum technology isn't isolated—it intersects with every frontier domain:
 
-## One Month to REALLY Know Builders
+## Quantum + AI
 
-- Live alongside quantum startup founders, developers, and researchers
-- Watch how they think, solve problems, collaborate under pressure
-- Understand the technology deeply through daily interactions
-- Identify true technical leadership vs. hype
+- Quantum machine learning for exponential speedups
+- AI-driven quantum algorithm discovery
+- Quantum approaches to AI alignment and safety
+- Connections with Edge's Truth-Seeking AI and d/acc tracks
 
-## The Edge City Advantage
+## Quantum + Neurotech & Brain-Computer Interfaces
 
-- High-trust environment modeled after successful incubator approaches
-- Quantum consulting partnerships (IBM, Rigetti, IonQ ecosystem interactions)
-- Big tech quantum team collaborations (Google, Microsoft, Amazon connections)
-- VCs with scientific backgrounds reconnecting with research roots
+- Quantum sensors for unprecedented brain measurement precision
+- Neural interface applications leveraging quantum sensing
+- Direct overlap with Edge's Neurotech Summit
 
-## Beyond Silicon Valley Playbooks
+## Quantum + Biotech & Longevity
 
-- Explore quantum economy storytelling
-- Question if traditional startup models fit quantum hardware/software
-- Build genuine relationships that outlast funding rounds
-- Due diligence through lived experience, not slide decks
+- Drug discovery and protein folding simulations
+- Biosensing and medical diagnostics
+- Connections with Edge's Health & Bio Residency and Vital Futures track
 
-**For Builders**: Access to engaged capital that understands deep tech timelines
+## Quantum + Hard Tech & Infrastructure
+
+- Materials science and energy systems
+- Post-quantum cryptography for secure infrastructure
+- Distributed quantum computing networks
+- Overlap with Edge's Tomorrowland hard tech week
+
+**For Builders**: Access to cross-domain expertise and engaged capital that understands deep tech timelines
 
