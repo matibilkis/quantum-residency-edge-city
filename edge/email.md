@@ -8,8 +8,6 @@ From the business side, Edge City can be viewed as an incubator. In the quantum 
 
 From the social & community perspective, Edge seems to provide an interesting seed to create a community. While the scope of Edge and community is wider than web3 & blockchain, one of the goals of this residency program is to understand whether there should be a room for a dedicated blockchain-quantum-workforce, focusing beyond post-quantum crypto (say, modelling, optimization, sensing applied to open-problems in the blockchain).
 
-We believe the quantum residency at Edge (quredge) is timely. You can find more information
+We believe the quantum residency at Edge (quredge) is timely. You can find more information at https://quantum-residency-edge-city-production.up.railway.app/ or reach out if you want to discuss partnership opportunities, participation, or just learn more about what we're building.
 
-
-
-****
+Looking forward to connecting,
