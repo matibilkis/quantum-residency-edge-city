@@ -1,3 +1,3 @@
-Where quantum meets Web3
+Where Quantum Meets the Future
 
 

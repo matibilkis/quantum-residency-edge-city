@@ -431,9 +431,25 @@
           <label for="participation">Participation *</label>
           <select id="participation" name="participation" required>
             <option value="">Select one...</option>
-            <option value="attendant">Attendant</option>
+            <option value="attendant">Attendee</option>
+            <option value="researcher">Researcher</option>
+            <option value="builder">Builder (AI/Neurotech/Biotech/etc)</option>
             <option value="sponsor">Sponsor</option>
-            <option value="both">Both</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="domain">Primary domain of interest</label>
+          <select id="domain" name="domain">
+            <option value="">Select one...</option>
+            <option value="quantum-ai">Quantum + AI</option>
+            <option value="quantum-neurotech">Quantum + Neurotech</option>
+            <option value="quantum-bio">Quantum + Bio/Longevity</option>
+            <option value="quantum-consciousness">Quantum + Consciousness</option>
+            <option value="quantum-hardtech">Quantum + Hard Tech</option>
+            <option value="quantum-crypto">Quantum + Cryptography</option>
+            <option value="other">Other</option>
           </select>
         </div>
         

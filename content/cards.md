@@ -1,16 +1,16 @@
 # Quantum Foundations
 
-Blending hardcore quantum physics and technology research with high-trust developers, in a dynamical environment **very** unique for interdisciplinary collaborations and proof of concepts.
+Hardcore quantum physics meets frontier research. From foundational questions about reality to cutting-edge sensing and computing—a high-trust environment **uniquely** suited for interdisciplinary breakthroughs and proof of concepts.
 
 ---
 
-# web3 and blockchain
+# Frontier Technology
 
-Web3 is more than sending money through blockchain, and quantum is way more than protecting smart contracts against Shor's algorithm via post-quantum cryptography. What then? Quredge will find out!
+Quantum intersects with AI alignment, brain-computer interfaces, longevity research, and distributed systems. From quantum sensing in biotech to post-quantum cryptography—we bridge deep physics with applications across hard tech, neurotech, and decentralized networks.
 
 ---
 
-# Transdisciplinary Convergence
+# Edge Residencies & Tracks
 
-We offer investors something rare: one month to really know builders and the incubation process. Quredge provides access to engaged capital that understands deep tech timelines.
+Quredge connects with Edge's full ecosystem: d/acc builders, consciousness researchers, neurotech pioneers, health & bio innovators, and hard tech founders. One residency, multiple collision points across 25+ active tracks.
 
