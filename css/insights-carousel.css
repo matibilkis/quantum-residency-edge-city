@@ -34,7 +34,7 @@
   align-items: center;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .insights-title {
@@ -56,14 +56,14 @@
 .carousel-prev,
 .carousel-next {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
   color: #ffffff;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
-  font-size: 1.5rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -72,14 +72,15 @@
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background: rgba(30, 203, 225, 0.2);
+  background: rgba(77, 159, 255, 0.15);
   border-color: var(--primary);
-  transform: scale(1.1);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .carousel-prev:active,
 .carousel-next:active {
-  transform: scale(0.95);
+  transform: translateY(0);
 }
 
 .carousel-dots {
@@ -92,15 +93,16 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal);
 }
 
 .carousel-dot.active {
   background: var(--primary);
   width: 24px;
   border-radius: 4px;
+  box-shadow: 0 0 12px var(--primary-glow);
 }
 
 /* Carousel Wrapper */
