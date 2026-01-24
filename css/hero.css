@@ -11,6 +11,35 @@
   letter-spacing: -0.02em;
 }
 
+.hero-paragraph {
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 auto 1.5rem auto;
+  max-width: 900px;
+  font-weight: 400;
+  font-family: var(--font-sans);
+  animation: fadeInUp 0.6s ease-out 0.05s both;
+  line-height: 1.75;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.hero-paragraph em {
+  color: var(--primary);
+  font-style: normal;
+  font-weight: 500;
+  text-shadow: 0 0 20px rgba(77, 159, 255, 0.3);
+}
+
+.hero-paragraph strong {
+  color: #ffffff;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(77, 159, 255, 0.15) 0%, rgba(125, 211, 192, 0.1) 100%);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  border: 1px solid rgba(77, 159, 255, 0.2);
+}
+
 .subtitle {
   font-size: clamp(0.9rem, 1.1vw, 1.05rem);
   color: rgba(255, 255, 255, 0.8);
@@ -176,6 +205,14 @@
     margin-bottom: 0.4rem;
   }
 
+  .hero-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 95%;
+    margin-bottom: 1.2rem;
+    padding: 0 1rem;
+  }
+
   .subtitle {
     font-size: 0.88rem;
     line-height: 1.45;
@@ -201,6 +238,14 @@
   .hero-title {
     font-size: 1.2rem;
     margin-bottom: 0.3rem;
+  }
+
+  .hero-paragraph {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    max-width: 98%;
+    margin-bottom: 1rem;
+    padding: 0 0.75rem;
   }
 
   .subtitle {
