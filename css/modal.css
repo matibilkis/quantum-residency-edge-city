@@ -7,8 +7,9 @@
   width: 100%;
   height: 100dvh;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(4px);
+  background: rgba(10, 14, 20, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 1000;
   overflow-y: auto;
   padding: 20px;
@@ -24,15 +25,17 @@
 }
 
 .modal-card {
-  background: var(--card-bg);
-  border: 2px solid var(--card-border);
-  border-radius: var(--radius);
+  background: var(--glass-bg-solid);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
   max-width: 900px;
   width: 100%;
   margin: 40px auto;
   padding: 3rem;
   position: relative;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--glass-border);
   max-height: calc(100vh - 80px);
   overflow-y: auto;
   overscroll-behavior: contain;
@@ -61,8 +64,9 @@
 }
 
 .modal-close:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   transform: rotate(90deg);
+  color: var(--primary);
 }
 
 .modal-title {
@@ -89,14 +93,16 @@
 
 .modal-section {
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 1.5rem;
-  border-left: 4px solid var(--card-border);
+  border-left: 4px solid var(--glass-border);
+  border: 1px solid var(--glass-border);
   transition: all var(--transition-normal);
 }
 
 .modal-section:hover {
   background: rgba(255, 255, 255, 0.05);
+  border-color: var(--glass-border-hover);
 }
 
 .modal-section.research {

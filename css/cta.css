@@ -1,6 +1,6 @@
 /* CTA Section & Button */
 .cta-section {
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,15 +12,15 @@
 .learn-more-btn {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--edge-dark);
-  background: var(--primary);
-  padding: 0.8em 1.8em;
+  font-size: 0.95rem;
+  color: #0a0e14;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-soft) 100%);
+  padding: 0.85em 2em;
   border: none;
-  border-radius: 200px;
-  box-shadow: 0 2px 20px rgba(30, 203, 225, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--primary-glow);
   cursor: pointer;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
   margin-bottom: 25px;
   transition: all var(--transition-normal);
   position: relative;
@@ -28,40 +28,40 @@
 }
 
 .learn-more-btn:hover {
-  background: #2dd8ed;
-  box-shadow: 0 4px 32px rgba(30, 203, 225, 0.5);
-  transform: translateY(-2px) scale(1.03);
+  background: linear-gradient(135deg, #5aa5ff 0%, var(--primary) 100%);
+  box-shadow: 0 8px 32px var(--primary-glow);
+  transform: translateY(-3px);
 }
 
 .learn-more-btn:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(-1px);
 }
 
 .cta-btn-large {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--edge-dark);
-  background: linear-gradient(98deg, var(--primary) 60%, var(--accent) 100%);
-  padding: 1rem 3rem;
+  font-size: 1.4rem;
+  color: #0a0e14;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  padding: 1.1rem 3rem;
   border: none;
-  border-radius: 200px;
-  box-shadow: 0 4px 32px rgba(30, 203, 225, 0.4);
+  border-radius: 14px;
+  box-shadow: 0 6px 32px var(--primary-glow);
   cursor: pointer;
-  letter-spacing: 0.05em;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.03em;
+  transition: all var(--transition-normal);
   position: relative;
   overflow: hidden;
 }
 
 .cta-btn-large:hover {
-  background: linear-gradient(94deg, #44e4ef 40%, #f7e57b 100%);
-  box-shadow: 0 8px 40px rgba(30, 203, 225, 0.6);
-  transform: translateY(-4px) scale(1.05);
+  background: linear-gradient(135deg, #5aa5ff 0%, #8fe0d0 100%);
+  box-shadow: 0 10px 40px var(--primary-glow);
+  transform: translateY(-4px);
 }
 
 .cta-btn-large:active {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px);
 }
 
 /* Ripple effect for clicks */

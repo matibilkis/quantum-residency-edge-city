@@ -23,12 +23,14 @@
 /* Stats Section - Moved below cards */
 .about-stats {
   text-align: center;
-  padding: 2rem 1.5rem;
-  margin-top: 2rem;
+  padding: 2.5rem 2rem;
+  margin-top: 2.5rem;
   margin-bottom: 0;
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--glass-border);
 }
 
 .stats-tagline {
@@ -59,10 +61,10 @@
 .stat-number {
   font-family: var(--font-sans);
   font-size: 2.5rem;
-  font-weight: 900;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1;
-  text-shadow: 0 0 20px rgba(30, 203, 225, 0.5);
+  text-shadow: 0 0 24px var(--primary-glow);
 }
 
 .stat-label {

@@ -1,56 +1,56 @@
 /* Hero Section & Cloud Animation */
 .hero-title {
   font-family: var(--font-mono);
-  font-size: 2.2rem;
-  font-weight: 900;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  font-weight: 700;
   color: #ffffff;
   margin-bottom: 1.5rem;
-  text-shadow: 0 2px 20px rgba(30, 203, 225, 0.4);
-  animation: fadeInUp 0.65s ease-out;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  text-shadow: 0 4px 30px var(--primary-glow);
+  animation: fadeInUp 0.7s ease-out;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
 .subtitle {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 1rem;
   font-weight: 400;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
   font-family: var(--font-sans);
-  animation: fadeInUp 0.65s ease-out 0.12s both;
-  line-height: 1.7;
+  animation: fadeInUp 0.7s ease-out 0.12s both;
+  line-height: 1.75;
   padding: 0 1.5rem;
 }
 
 .subtitle-meta {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--primary);
   margin-top: 0.75rem;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   font-weight: 600;
   font-family: var(--font-mono);
-  animation: fadeInUp 0.65s ease-out 0.18s both;
-  letter-spacing: 0.12em;
+  animation: fadeInUp 0.7s ease-out 0.18s both;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
 /* Cloud Convergence Container */
 .cloud-convergence {
   width: 100%;
   max-width: 1200px;
-  height: 100px;
-  margin: 0 auto 6px auto;
+  height: 120px;
+  margin: 0 auto 12px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
   perspective: 1200px;
-  filter: drop-shadow(0 1px 20px #13e3cb08);
-  animation: fadeIn 0.65s ease-out 0.25s both;
+  filter: drop-shadow(0 2px 30px rgba(77, 159, 255, 0.08));
+  animation: fadeIn 0.7s ease-out 0.25s both;
   padding: 0 40px;
 }
 
@@ -59,42 +59,43 @@
   position: relative;
   width: 220px;
   height: auto;
-  opacity: 0.5;
+  opacity: 0.4;
   will-change: transform, opacity;
+  filter: blur(0.3px);
 }
 
 .cloud-philosophy {
-  filter: drop-shadow(0 2px 10px rgba(46, 236, 184, 0.18));
-  animation: convergeLeft 4s ease-in-out infinite;
+  filter: blur(0.3px) drop-shadow(0 4px 20px rgba(61, 232, 192, 0.2));
+  animation: convergeLeft 5s ease-in-out infinite;
 }
 
 .cloud-web3 {
-  filter: drop-shadow(0 2px 10px rgba(227, 102, 247, 0.18));
-  animation: convergeCenter 4s ease-in-out infinite;
+  filter: blur(0.3px) drop-shadow(0 4px 20px rgba(214, 112, 240, 0.2));
+  animation: convergeCenter 5s ease-in-out infinite;
 }
 
 .cloud-transdisciplinary {
-  filter: drop-shadow(0 2px 10px rgba(254, 199, 72, 0.16));
-  animation: convergeRight 4s ease-in-out infinite;
+  filter: blur(0.3px) drop-shadow(0 4px 20px rgba(245, 200, 66, 0.18));
+  animation: convergeRight 5s ease-in-out infinite;
 }
 
 /* Left cloud: moves right toward center, overlaps, returns */
 @keyframes convergeLeft {
   0%, 100% {
     transform: translateX(0) translateY(0) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
   35% {
-    transform: translateX(80px) translateY(-10px) scale(1.15);
-    opacity: 0.7;
+    transform: translateX(70px) translateY(-8px) scale(1.12);
+    opacity: 0.55;
   }
   50% {
-    transform: translateX(80px) translateY(-10px) scale(1.15);
-    opacity: 0.7;
+    transform: translateX(70px) translateY(-8px) scale(1.12);
+    opacity: 0.55;
   }
   85% {
     transform: translateX(0) translateY(0) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
@@ -102,19 +103,19 @@
 @keyframes convergeCenter {
   0%, 100% {
     transform: translateY(0) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
   35% {
-    transform: translateY(-15px) scale(1.2);
-    opacity: 0.75;
+    transform: translateY(-12px) scale(1.15);
+    opacity: 0.6;
   }
   50% {
-    transform: translateY(-15px) scale(1.2);
-    opacity: 0.75;
+    transform: translateY(-12px) scale(1.15);
+    opacity: 0.6;
   }
   85% {
     transform: translateY(0) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
@@ -122,19 +123,19 @@
 @keyframes convergeRight {
   0%, 100% {
     transform: translateX(0) translateY(0) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
   35% {
-    transform: translateX(-80px) translateY(-10px) scale(1.15);
-    opacity: 0.7;
+    transform: translateX(-70px) translateY(-8px) scale(1.12);
+    opacity: 0.55;
   }
   50% {
-    transform: translateX(-80px) translateY(-10px) scale(1.15);
-    opacity: 0.7;
+    transform: translateX(-70px) translateY(-8px) scale(1.12);
+    opacity: 0.55;
   }
   85% {
     transform: translateX(0) translateY(0) scale(1);
-    opacity: 0.5;
+    opacity: 0.4;
   }
 }
 
