@@ -68,7 +68,7 @@
 **Needed**:
 - Who's running Quredge?
 - Advisory board or scientific committee (if available)
-- More prominent institutional partnerships (QutSur, UAB Cruïlla)
+- More prominent institutional partnerships (QutSur)
 
 **Impact**: Sponsors invest in people and credibility, not just concepts
 
@@ -268,7 +268,7 @@
 
 3. **Warm Introductions** (High Value)
    - Leverage Edge City network
-   - QutSur/UAB Cruïlla connections
+   - QutSur connections
    - Past Edge City participants
 
 4. **Events** (If Applicable)
