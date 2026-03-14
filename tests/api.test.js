@@ -297,6 +297,116 @@ describe('Rate Limiting', () => {
   });
 });
 
+describe('QR Code Check-In', () => {
+  let cookies;
+  let registeredId;
+
+  beforeAll(async () => {
+    // Login
+    const loginRes = await request(server)
+      .post('/api/auth/login')
+      .send({ username: testAdmin.username, password: testAdmin.password });
+    cookies = loginRes.headers['set-cookie'];
+
+    // Use an existing submission to avoid hitting rate limits.
+    // Previous test suites (Database Integration, etc.) have already inserted records.
+    const allRes = await request(server)
+      .get('/api/admin/interest/all')
+      .set('Cookie', cookies);
+    registeredId = allRes.body.data && allRes.body.data.length > 0
+      ? allRes.body.data[allRes.body.data.length - 1].id
+      : null;
+  });
+
+  test('GET /api/admin/checkin/lookup/:id should require authentication', async () => {
+    await request(server)
+      .get(`/api/admin/checkin/lookup/${registeredId}`)
+      .expect(401);
+  });
+
+  test('GET /api/admin/checkin/lookup/:id should return attendee info', async () => {
+    const res = await request(server)
+      .get(`/api/admin/checkin/lookup/${registeredId}`)
+      .set('Cookie', cookies)
+      .expect(200);
+
+    expect(res.body.success).toBe(true);
+    expect(res.body.attendee.id).toBe(registeredId);
+    expect(typeof res.body.attendee.name).toBe('string');
+    expect(typeof res.body.attendee.email).toBe('string');
+    expect(res.body.attendee.checked_in).toBeFalsy();
+  });
+
+  test('GET /api/admin/checkin/lookup/:id should return 404 for unknown ID', async () => {
+    const res = await request(server)
+      .get('/api/admin/checkin/lookup/999999')
+      .set('Cookie', cookies)
+      .expect(404);
+
+    expect(res.body.success).toBe(false);
+  });
+
+  test('GET /api/admin/checkin/lookup/:id should return 400 for invalid ID', async () => {
+    const res = await request(server)
+      .get('/api/admin/checkin/lookup/abc')
+      .set('Cookie', cookies)
+      .expect(400);
+
+    expect(res.body.success).toBe(false);
+  });
+
+  test('POST /api/admin/checkin should require authentication', async () => {
+    await request(server)
+      .post('/api/admin/checkin')
+      .send({ id: registeredId })
+      .expect(401);
+  });
+
+  test('POST /api/admin/checkin should check in an attendee', async () => {
+    const res = await request(server)
+      .post('/api/admin/checkin')
+      .set('Cookie', cookies)
+      .send({ id: registeredId })
+      .expect(200);
+
+    expect(res.body.success).toBe(true);
+    expect(res.body.message).toContain('successfully');
+    expect(res.body.attendee.checked_in).toBeTruthy();
+    expect(res.body.attendee.checked_in_at).toBeDefined();
+  });
+
+  test('POST /api/admin/checkin should return 409 when already checked in', async () => {
+    const res = await request(server)
+      .post('/api/admin/checkin')
+      .set('Cookie', cookies)
+      .send({ id: registeredId })
+      .expect(409);
+
+    expect(res.body.success).toBe(false);
+    expect(res.body.message).toContain('already checked in');
+  });
+
+  test('Lookup should reflect checked-in status after check-in', async () => {
+    const res = await request(server)
+      .get(`/api/admin/checkin/lookup/${registeredId}`)
+      .set('Cookie', cookies)
+      .expect(200);
+
+    expect(res.body.attendee.checked_in).toBeTruthy();
+    expect(res.body.attendee.checked_in_at).toBeDefined();
+  });
+
+  test('POST /api/admin/checkin should return 404 for unknown attendee', async () => {
+    const res = await request(server)
+      .post('/api/admin/checkin')
+      .set('Cookie', cookies)
+      .send({ id: 999999 })
+      .expect(404);
+
+    expect(res.body.success).toBe(false);
+  });
+});
+
 describe('Logout', () => {
   test('POST /api/auth/logout should clear session', async () => {
     // Login first

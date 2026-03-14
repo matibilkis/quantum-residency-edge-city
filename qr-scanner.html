@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR Check-In Scanner - Quredge</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container { max-width: 700px; margin: 0 auto; }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+      text-decoration: none;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    #reader {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .manual-form {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .manual-form input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 1rem;
+      color: #fff;
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      outline: none;
+    }
+    .manual-form input:focus { border-color: #00ffff; }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00ffff, #0080ff);
+      color: #000;
+    }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    .btn-success {
+      background: linear-gradient(135deg, #00ff88, #00cc66);
+      color: #000;
+      width: 100%;
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    .btn-success:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-success:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    .btn-outline {
+      background: transparent;
+      color: #00ffff;
+      border: 2px solid #00ffff;
+    }
+    .btn-outline:hover { background: rgba(0,255,255,0.1); }
+
+    #result-card { display: none; }
+
+    .attendee-info { margin-bottom: 1.5rem; }
+
+    .attendee-info .field {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.625rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9375rem;
+    }
+    .attendee-info .field:last-child { border-bottom: none; }
+    .attendee-info .label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.5);
+    }
+    .attendee-info .value { font-weight: 600; }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .badge-success { background: rgba(0,255,136,0.15); color: #00ff88; border: 1px solid rgba(0,255,136,0.3); }
+    .badge-warning { background: rgba(255,200,0,0.15); color: #ffc800; border: 1px solid rgba(255,200,0,0.3); }
+    .badge-info    { background: rgba(0,255,255,0.1);  color: #00ffff; border: 1px solid rgba(0,255,255,0.2); }
+
+    .alert {
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+    .alert-error   { background: rgba(255,50,50,0.1);  border: 1px solid rgba(255,50,50,0.3);  color: #ff6b6b; }
+    .alert-success { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: #00ff88; }
+    .alert-warning { background: rgba(255,200,0,0.1); border: 1px solid rgba(255,200,0,0.3); color: #ffc800; }
+
+    #status-message { display: none; }
+
+    .scan-status {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.75rem;
+      min-height: 1.2em;
+    }
+
+    #scanner-toggle-btn { margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="/admin.html" class="back-link">← Back to Admin</a>
+    <h1>QR Check-In</h1>
+    <p class="subtitle">Scan attendee QR codes or enter ID manually</p>
+
+    <!-- Scanner Card -->
+    <div class="card">
+      <h2>Camera Scanner</h2>
+      <button class="btn btn-outline" id="scanner-toggle-btn" onclick="toggleScanner()">Start Camera</button>
+      <div id="reader"></div>
+      <p class="scan-status" id="scan-status">Scanner stopped.</p>
+    </div>
+
+    <!-- Manual Entry -->
+    <div class="card">
+      <h2>Manual Entry</h2>
+      <div class="manual-form">
+        <input type="number" id="manual-id" placeholder="Attendee ID (e.g. 42)" min="1" />
+        <button class="btn btn-primary" onclick="lookupById()">Look Up</button>
+      </div>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status-message"></div>
+
+    <!-- Result Card -->
+    <div class="card" id="result-card">
+      <h2>Attendee</h2>
+      <div class="attendee-info" id="attendee-info"></div>
+      <button class="btn btn-success" id="checkin-btn" onclick="doCheckin()">Check In</button>
+    </div>
+  </div>
+
+  <!-- html5-qrcode library -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+  <script>
+    let html5QrCode = null;
+    let scannerRunning = false;
+    let currentAttendee = null;
+
+    function toggleScanner() {
+      if (scannerRunning) {
+        stopScanner();
+      } else {
+        startScanner();
+      }
+    }
+
+    function startScanner() {
+      if (!html5QrCode) {
+        html5QrCode = new Html5Qrcode('reader');
+      }
+
+      const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+
+      html5QrCode.start(
+        { facingMode: 'environment' },
+        config,
+        onScanSuccess,
+        onScanFailure
+      ).then(() => {
+        scannerRunning = true;
+        document.getElementById('scanner-toggle-btn').textContent = 'Stop Camera';
+        document.getElementById('scan-status').textContent = 'Scanning… point camera at QR code.';
+      }).catch(err => {
+        showMessage('error', 'Camera error: ' + err);
+      });
+    }
+
+    function stopScanner() {
+      if (html5QrCode && scannerRunning) {
+        html5QrCode.stop().then(() => {
+          scannerRunning = false;
+          document.getElementById('scanner-toggle-btn').textContent = 'Start Camera';
+          document.getElementById('scan-status').textContent = 'Scanner stopped.';
+        });
+      }
+    }
+
+    function onScanSuccess(decodedText) {
+      // QR codes encode the attendee ID as a plain number or "quredge:<id>"
+      let id = decodedText.trim();
+      const match = id.match(/^(?:quredge:)?(\d+)$/i);
+      if (!match) {
+        showMessage('error', 'Unrecognised QR code: ' + decodedText);
+        return;
+      }
+      stopScanner();
+      document.getElementById('scan-status').textContent = 'QR code scanned: ' + decodedText;
+      fetchAttendee(parseInt(match[1], 10));
+    }
+
+    function onScanFailure() {
+      // Silently ignore per-frame failures — normal during scanning
+    }
+
+    function lookupById() {
+      const val = document.getElementById('manual-id').value.trim();
+      const id = parseInt(val, 10);
+      if (!id || id <= 0) {
+        showMessage('error', 'Please enter a valid attendee ID.');
+        return;
+      }
+      fetchAttendee(id);
+    }
+
+    async function fetchAttendee(id) {
+      clearResult();
+      try {
+        const res = await fetch('/api/admin/checkin/lookup/' + id, { credentials: 'include' });
+        const data = await res.json();
+        if (!data.success) {
+          showMessage('error', data.message || 'Attendee not found.');
+          return;
+        }
+        currentAttendee = data.attendee;
+        renderAttendee(data.attendee);
+      } catch (err) {
+        showMessage('error', 'Network error. Please try again.');
+      }
+    }
+
+    function renderAttendee(a) {
+      const checkedInBadge = a.checked_in
+        ? '<span class="badge badge-success">Checked In</span>'
+        : '<span class="badge badge-warning">Not Checked In</span>';
+
+      const participationLabel = {
+        attendant: 'Attendant',
+        speaker: 'Speaker',
+        sponsor: 'Sponsor',
+        organizer: 'Organizer'
+      }[a.participation] || a.participation;
+
+      document.getElementById('attendee-info').innerHTML = `
+        <div class="field"><span class="label">ID</span><span class="value">#${a.id}</span></div>
+        <div class="field"><span class="label">Name</span><span class="value">${escHtml(a.name)}</span></div>
+        <div class="field"><span class="label">Email</span><span class="value">${escHtml(a.email)}</span></div>
+        <div class="field"><span class="label">Role</span><span class="value"><span class="badge badge-info">${escHtml(participationLabel)}</span></span></div>
+        ${a.institution ? `<div class="field"><span class="label">Institution</span><span class="value">${escHtml(a.institution)}</span></div>` : ''}
+        <div class="field"><span class="label">Status</span><span class="value">${checkedInBadge}</span></div>
+        ${a.checked_in_at ? `<div class="field"><span class="label">Checked In At</span><span class="value">${new Date(a.checked_in_at).toLocaleString()}</span></div>` : ''}
+      `;
+
+      const btn = document.getElementById('checkin-btn');
+      if (a.checked_in) {
+        btn.textContent = 'Already Checked In';
+        btn.disabled = true;
+      } else {
+        btn.textContent = 'Check In ✓';
+        btn.disabled = false;
+      }
+
+      document.getElementById('result-card').style.display = 'block';
+    }
+
+    async function doCheckin() {
+      if (!currentAttendee) return;
+      const btn = document.getElementById('checkin-btn');
+      btn.disabled = true;
+      btn.textContent = 'Checking in…';
+
+      try {
+        const res = await fetch('/api/admin/checkin', {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id: currentAttendee.id })
+        });
+        const data = await res.json();
+        if (data.success) {
+          currentAttendee = data.attendee;
+          renderAttendee(data.attendee);
+          showMessage('success', `${escHtml(data.attendee.name)} checked in successfully!`);
+        } else if (res.status === 409) {
+          showMessage('warning', data.message);
+          renderAttendee(data.attendee);
+        } else {
+          showMessage('error', data.message || 'Check-in failed.');
+          btn.disabled = false;
+          btn.textContent = 'Check In ✓';
+        }
+      } catch (err) {
+        showMessage('error', 'Network error. Please try again.');
+        btn.disabled = false;
+        btn.textContent = 'Check In ✓';
+      }
+    }
+
+    function showMessage(type, text) {
+      const el = document.getElementById('status-message');
+      el.className = 'alert alert-' + type;
+      el.textContent = text;
+      el.style.display = 'block';
+      if (type === 'success') {
+        setTimeout(() => { el.style.display = 'none'; }, 5000);
+      }
+    }
+
+    function clearResult() {
+      currentAttendee = null;
+      document.getElementById('result-card').style.display = 'none';
+      document.getElementById('status-message').style.display = 'none';
+    }
+
+    function escHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    // Allow Enter key in manual input
+    document.getElementById('manual-id').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') lookupById();
+    });
+  </script>
+</body>
+</html>

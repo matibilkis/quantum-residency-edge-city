@@ -67,11 +67,18 @@ async function initializeDatabase() {
         participation TEXT NOT NULL,
         institution TEXT,
         economic_support TEXT,
+        checked_in BOOLEAN DEFAULT FALSE,
+        checked_in_at TIMESTAMP,
         submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )
     `;
-    
+
     await pool.query(createTableQuery);
+
+    // Migration: add columns if they don't exist (for existing databases)
+    await pool.query(`ALTER TABLE interest_forms ADD COLUMN IF NOT EXISTS checked_in BOOLEAN DEFAULT FALSE`);
+    await pool.query(`ALTER TABLE interest_forms ADD COLUMN IF NOT EXISTS checked_in_at TIMESTAMP`);
+
     console.log('✅ Interest forms table ready');
   } catch (err) {
     console.error('❌ Database initialization error:', err.message);
@@ -184,6 +191,68 @@ app.get('/api/admin/interest/stats', auth.requireAuth.bind(auth), async (req, re
   }
 });
 
+// QR Code Check-in: look up attendee by ID (admin only)
+app.get('/api/admin/checkin/lookup/:id', auth.requireAuth.bind(auth), async (req, res) => {
+  const { id } = req.params;
+  const parsedId = parseInt(id, 10);
+
+  if (isNaN(parsedId) || parsedId <= 0) {
+    return res.status(400).json({ success: false, message: 'Invalid attendee ID.' });
+  }
+
+  try {
+    const result = await pool.query(
+      'SELECT id, name, email, participation, institution, checked_in, checked_in_at FROM interest_forms WHERE id = $1',
+      [parsedId]
+    );
+    if (result.rows.length === 0) {
+      return res.status(404).json({ success: false, message: 'Attendee not found.' });
+    }
+    res.json({ success: true, attendee: result.rows[0] });
+  } catch (err) {
+    console.error('Error looking up attendee:', err.message);
+    res.status(500).json({ success: false, message: 'Error looking up attendee.' });
+  }
+});
+
+// QR Code Check-in: mark attendee as checked in (admin only)
+app.post('/api/admin/checkin', auth.requireAuth.bind(auth), async (req, res) => {
+  const { id } = req.body;
+  const parsedId = parseInt(id, 10);
+
+  if (isNaN(parsedId) || parsedId <= 0) {
+    return res.status(400).json({ success: false, message: 'Invalid attendee ID.' });
+  }
+
+  try {
+    const lookup = await pool.query(
+      'SELECT id, name, email, participation, institution, checked_in, checked_in_at FROM interest_forms WHERE id = $1',
+      [parsedId]
+    );
+    if (lookup.rows.length === 0) {
+      return res.status(404).json({ success: false, message: 'Attendee not found.' });
+    }
+    const attendee = lookup.rows[0];
+    if (attendee.checked_in) {
+      return res.status(409).json({ success: false, message: 'Attendee already checked in.', attendee });
+    }
+
+    const now = new Date().toISOString();
+    await pool.query(
+      'UPDATE interest_forms SET checked_in = TRUE, checked_in_at = $1 WHERE id = $2',
+      [now, parsedId]
+    );
+    res.json({
+      success: true,
+      message: 'Checked in successfully.',
+      attendee: { ...attendee, checked_in: true, checked_in_at: now }
+    });
+  } catch (err) {
+    console.error('Error processing check-in:', err.message);
+    res.status(500).json({ success: false, message: 'Error processing check-in.' });
+  }
+});
+
 // Serve the main page
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
@@ -192,6 +261,11 @@ app.get('/', (req, res) => {
 // Serve admin page (requires authentication)
 app.get('/admin.html', auth.requireAuth.bind(auth), (req, res) => {
   res.sendFile(path.join(__dirname, 'admin.html'));
+});
+
+// Serve QR scanner page (requires authentication)
+app.get('/qr-scanner.html', auth.requireAuth.bind(auth), (req, res) => {
+  res.sendFile(path.join(__dirname, 'qr-scanner.html'));
 });
 
 // Start server
